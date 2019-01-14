@@ -1,0 +1,35 @@
+
+import threading
+
+import time
+
+def test1():
+    for i in range(5):
+        print("____text1____%d" % i)
+
+def test2():
+    for i in range(10):
+        print("____text2____%d" % i)
+
+
+
+def main():
+    print(threading.enumerate())
+
+    #创建一个Thread 对象
+    t1 = threading.Thread(target=test1)
+    t2 = threading.Thread(target=test2)
+
+    #启动线程调用start方法,在我们启动Start 方法的时候才会创建线程并启动线程
+    t1.start()
+    time.sleep(1)
+    t2.start()
+
+    #睡眠
+    time.sleep(3)
+
+    print("本次测试结束")
+
+
+if __name__ == '__main__':
+    main()
