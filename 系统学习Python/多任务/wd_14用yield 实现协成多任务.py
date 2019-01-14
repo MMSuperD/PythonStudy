@@ -14,7 +14,6 @@ def task2():
         yield
 
 
-
 def main():
     t1 = task1()
     t2 = task2()
