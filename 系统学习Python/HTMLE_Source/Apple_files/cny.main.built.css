@@ -1,0 +1,40 @@
+/*fixed cny bgcolor cause us have add cny on main.built.css*/
+html[data-layout-name=cny] .main [data-module-template="give-back"].standalone-module {
+    border-bottom-color: #fff
+}
+
+html[data-layout-name=cny] .main [data-module-template="heroes"]:not(.standalone-module) [data-unit-id="iphone-xr"],html[data-layout-name=cny] .main [data-module-template="heroes"]:not(.standalone-module) [data-unit-id="iphone-xs"] {
+    border-top-color: #222;
+    border-bottom-color: #222
+}
+
+html[data-layout-name=cny] .main [data-module-template="heroes"]:not(.standalone-module) [data-unit-id="iphone-xs"] {
+    border-bottom-color: #FFF
+}
+
+html[data-layout-name=cny] .main [data-module-template="heroes"]:not(.standalone-module) [data-unit-id="iphone-xr"]{
+  border-top-color:#fff;
+}
+
+html[data-layout-name=cny] .cny-gift-guide .cny_centerall{
+  padding-left: 0.3em;
+}
+.main [data-module-template="heroes"] [data-unit-id="cny-gift-guide"] .unit-copy-wrapper {
+    text-align: center
+}
+
+@media only screen and (max-width: 735px) {
+    .main [data-module-template="heroes"] [data-unit-id="cny-gift-guide"] .unit-copy-wrapper .headline {
+        max-width:90%
+    }
+}
+
+@media only screen and (max-width: 735px) {
+    .main [data-module-template="heroes"] [data-unit-id="cny-gift-guide"] .unit-copy-wrapper .subhead {
+        max-width:16em
+    }
+}
+
+.main [data-module-template="heroes"] [data-unit-id="cny-gift-guide"] .unit-copy-wrapper .cta-links a:last-child {
+    margin-left: 0
+}
