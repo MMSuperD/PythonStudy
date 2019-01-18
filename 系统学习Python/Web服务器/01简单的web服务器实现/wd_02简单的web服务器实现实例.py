@@ -16,29 +16,30 @@ def service_client(new_socket,count):
 
     if ret:
         print(ret.group(1))
-    else:
-        print("没有匹配到相应的路径")
+        file_name = ret.group(1)
 
+    try:
+        f = open("/Users/sh-lx/Desktop/Github/PythonBase/系统学习Python/HTMLE_Source" + str(file_name), "rb")
+        html_content = f.read()
+        f.close()
+        # 2.服务器这边根据客户端发过来的请求做相应处理事情
+        # 2.1 拼接请求头 header
+        response = "HTTP/1.1 200 OK\r\n"
+        response += "\r\n"  # 这句话是为了换行,客户端那可边根据这个换行来得到响应体body
 
-    #2.服务器这边根据客户端发过来的请求做相应处理事情
-    #2.1 拼接请求头 header
-    response = "HTTP/1.1 200 OK\r\n"
-    response += "\r\n"  #这句话是为了换行,客户端那可边根据这个换行来得到响应体body
-    #2.2 拼接请求体 body
+        # 3. 发送数据到客户端(浏览器)
+        # 3.1 将请求头发送给客户端
+        new_socket.send(response.encode("utf-8"))
+        # 3.2 将请求体(内容发送给客户端)
+        new_socket.send(html_content)
 
-    #2.3 这里准备发送给浏览器的数据 body
-    #response += "<h1>Hello Python world!</h1>"
-    f = open("/Users/sh-lx/Desktop/Github/PythonBase/系统学习Python/HTMLE_Source/Taobao.html","rb")
-    html_content = f.read()
-    f.close()
-
-
-
-    #3. 发送数据到客户端(浏览器)
-    #3.1 将请求头发送给客户端
-    new_socket.send(response.encode("utf-8"))
-    #3.2 将请求体(内容发送给客户端)
-    new_socket.send(html_content)
+    except:
+           # 2.服务器这边根据客户端发过来的请求做相应处理事情
+           # 2.1 拼接请求头 header
+           response = "HTTP/1.1 404 NOT FOUND\r\n"
+           response += "\r\n"  # 这句话是为了换行,客户端那可边根据这个换行来得到响应体body
+           response += "----file not found 404 -----"
+           new_socket.send(response.encode("utf-8"))
 
     #4. 关闭套接字
     new_socket.close()
@@ -54,7 +55,7 @@ def main():
     tcp_server_socket.setsockopt(socket.SOL_SOCKET,socket.SO_REUSEADDR,1)
 
     #2.绑定端口
-    tcp_server_socket.bind(("",3456))
+    tcp_server_socket.bind(("",3448))
 
     #3.把套接字变为监听套接字
     tcp_server_socket.listen(128)
