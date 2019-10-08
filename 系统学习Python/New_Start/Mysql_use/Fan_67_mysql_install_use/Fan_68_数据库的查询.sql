@@ -61,3 +61,12 @@
         -- is not null
         -- 查询身高信息不为空的
         select * from student where height is not null;
+
+
+-- 数据记录排序 order by
+    -- order by asc 从小到大排序
+    -- order by desc 从大到小排序
+
+    -- 例子 这个是多个字段联合排序,如果没有多个字段,就写一个就好了
+    -- 查询 身高大于180 的男性 按照身高 从小到大排序,如果相同 按照id 从大到小排序
+    select * from student where age>180 order by height asc, id desc ;

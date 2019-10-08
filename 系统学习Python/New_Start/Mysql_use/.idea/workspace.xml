@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ad90cbec-3557-4ffc-8997-8d167f51356d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Fan_67_mysql_install_use/Fan_68_数据库的查询.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Fan_67_mysql_install_use/Fan_67_数据库常用操作.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Fan_67_mysql_install_use/Fan_67_数据库常用操作.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Fan_67_mysql_install_use/Fan_68_数据库的查询.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Fan_67_mysql_install_use/Fan_68_数据库的查询.sql" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -42,7 +39,7 @@
         <entry file="file://$PROJECT_DIR$/Fan_67_mysql_install_use/Fan_68_数据库的查询.sql">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="670">
-              <caret line="62" column="50" selection-start-line="62" selection-start-column="50" selection-end-line="62" selection-end-column="50" />
+              <caret line="71" column="64" selection-start-line="71" selection-start-column="64" selection-end-line="71" selection-end-column="64" />
             </state>
           </provider>
         </entry>
@@ -135,12 +132,12 @@
       <workItem from="1569726818294" duration="312000" />
       <workItem from="1569739310460" duration="4293000" />
       <workItem from="1569908690142" duration="256000" />
-      <workItem from="1570496780476" duration="7500000" />
+      <workItem from="1570496780476" duration="8377000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12361000" />
+    <option name="totallyTimeSpent" value="13238000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -159,7 +156,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.32891566" />
       <window_info anchor="bottom" id="Terminal" order="11" />
       <window_info anchor="bottom" id="Python Console" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -190,7 +187,7 @@
     <entry file="file://$PROJECT_DIR$/Fan_67_mysql_install_use/Fan_68_数据库的查询.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="670">
-          <caret line="62" column="50" selection-start-line="62" selection-start-column="50" selection-end-line="62" selection-end-column="50" />
+          <caret line="71" column="64" selection-start-line="71" selection-start-column="64" selection-end-line="71" selection-end-column="64" />
         </state>
       </provider>
     </entry>
