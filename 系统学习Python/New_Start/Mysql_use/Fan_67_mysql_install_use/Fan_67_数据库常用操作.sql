@@ -162,6 +162,9 @@
         -- 根据某一个条件查询数据
         select name,id from student where id<7;
 
+        -- 给表 取别名
+        select s.name as "姓名" from student as s;
+
     -- 删除数据
         -- 物理删除
         -- delete from 表名 where 条件;
@@ -174,6 +177,8 @@
         alter table student add is_delete bit default 0;
 
         -- update student set is_delete=1 where id=2;
+
+
 
 
 
