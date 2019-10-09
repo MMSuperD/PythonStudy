@@ -137,3 +137,37 @@
 
     -- 查询所有的女性记录 按照身高由高到低排序 每一页显示 3条数据(有一个记录点,limit 使用一定要在最后)
     select * from student where gender=1 order by height desc limit 0, 3;
+
+-- 链接查询
+    -- inner join ... on (也就是所谓的笛卡尔积 内链接)
+    -- select ... from 表1 inner join 表2;
+    select * from student inner join classess;
+    -- select ... from 表1 inner join 表2 on 条件
+
+    -- 查询能够对应班级的学生的记录,及其班级信息
+    select * from student inner join classes on student.cls_id=classes.id;
+
+    -- 按照要求显示姓名 和 班级
+    select classes.id as 班级, student.name as 姓名 from student inner join classes on student.cls_id=classes.id;
+
+    -- 给数据表取一个别名
+    select c.id as 班级, s.name as 姓名 from student as s inner join classes as c on s.cls_id=c.id;
+
+    -- 按照先按照班级名字进行排序,之后姓名排序
+    select c.id as 班级, s.name as 姓名 from student as s inner join classes as c on s.cls_id=c.id order by c.id,s.name;
+
+    -- left join (外链接 相对应的 还有 right join)
+    -- 查询每位学生对应的班级信息
+    select * from student left join classes on student.cls_id=classes.id;
+
+    -- 查询没有对应班级信息的学生 (直接对表赛选条件用where 对查询结果集操作 用 having)
+    select * from student left join classes on student.cls_id=classes.id having classes.id is null order by student.id asc ;
+
+
+-- 自联查询
+    -- 网址数据:http://demo.lanrenzhijia.com/2014/city0605/
+
+-- 子查询
+    -- 标量子查询
+    -- 查询身高最高的学生信息
+    select * from  student where height=(select max(height) from student);
