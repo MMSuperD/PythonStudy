@@ -7,8 +7,6 @@ class Tool(object):
     def size(self):
         return 100
 
-
-
 tool = Tool()
 
 # size = tool.size()  这样写是不对的,不能够传递参数,所以定义的时候也就只能有 self  了

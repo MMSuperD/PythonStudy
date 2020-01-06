@@ -10,7 +10,6 @@ class Good(object):
         # 折扣
         self.discount = 0.8
 
-
     @property
     def price(self):
         """实际价格"""

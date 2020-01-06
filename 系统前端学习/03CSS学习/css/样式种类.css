@@ -1,0 +1,87 @@
+
+
+/* id 选择器的样式等级 是最高的  id选择器 > 类选择器 */
+
+/* 标签选择器 */
+
+div{
+  font-size: 40px;
+}
+
+/* 核武器  这个用于所有标签的样式 */
+*{
+  font-size: 50px
+}
+
+/* id 选择器 每一个标签都有 id 属性 */
+#div1{
+  font-size: 60px;
+}
+
+/* 类选择器 .name name 自己定义 */
+.green{
+  background: green;
+}
+
+.bigFont{
+  font-size: 60px;
+  color: #ff0000;
+}
+
+/* 层级选择器 一般和类选择器连接起来用 一般层级选择器最多写 四层 */
+/* 这个表示 green 下面的 span2  */
+.green .span2{
+  color: #ff0000;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.green span{
+  color: #ffff00;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+/* 组选择器  :就是把相同的样式 集中到一起 减少代码 */
+.box1, .box2, .box3{
+  font-style: italic;
+  font-size: 20px;
+}
+
+.box1{
+  color: red;
+}
+
+.box2{
+  color: green;
+}
+
+.box3{
+  color: gold;
+}
+
+/* 伪类选择器 */
+
+.normal_color{
+  color: pink;
+  font-size: 30px;
+}
+
+/* 鼠标放上去时候的颜色 */
+.normal_color:hover{
+  color: gold;
+  font-size: 60px;
+  font-weight: bold;
+}
+
+/* 通过伪标签选择器 给 标签添加内容 和 样式 伪标签不能被选中 */
+.box1:before{
+  content: "I am very well!";
+  color:green;
+}
+
+
+.box1:after{
+  content: "I am very well!";
+  color: black;
+}

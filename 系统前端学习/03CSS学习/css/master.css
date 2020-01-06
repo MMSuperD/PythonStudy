@@ -1,0 +1,19 @@
+div{
+  font-size: 20px;
+  color: red;
+  font-family: 'Microsoft Yahei';
+  font-size: 40px;
+  background-color: gold;
+  line-height: 40px;
+  /* 首行缩进 */
+  text-indent: 40px;
+  /* 对齐方式 */
+  text-align: center;
+}
+
+/* 这个是标签选择器 */
+a{
+  text-decoration: none;
+  /* 这个属性没有效果 因为 a 标签的大小 和文字大小一样,不是占用整个屏幕 */
+  text-align: center;
+}
