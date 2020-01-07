@@ -1,0 +1,34 @@
+.box{
+  width: 600px;
+  height: 100px;
+  margin: 10px auto 0;
+  background-color: green;
+}
+
+/* 标签样式 优先级 大于 class 样式优先级 */
+.box div{
+  width: 100px;
+  height: 80px;
+}
+
+.text1{
+  float: left;
+  background-color: gold;
+}
+.text2{
+  float: right;
+  background-color: red;
+}
+
+/* 这个样式是为了清除浮动 和 margin-top 塌陷问题的 */
+.clearfix:before, .clearfix:after{
+  content: "";
+  display: table;
+}
+
+.clearfix:after{
+  clear: both;
+}
+.clearfix{
+  zoom:1;
+}
