@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=100%, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="./css/009css盒子模型块元素内联元素之间的问题解决.css" type="text/css">
+  <title>块元素 内联元素 内联块元素 问题结局</title>
+</head>
+<body>
+  <!-- 块元素(行元素) 常见的块元素 有 div p li ui h1-h6 dl dt dd 等等
+  块元素的特点:
+  1.支持全部样式
+  2.如果没有设置宽度 默认为父级宽度的100%
+  3.盒子占据一行 即使设置了宽度
+ -->
+
+<div class="box1">div 块级元素</div>
+<div class="box2">div 块级元素</div>
+
+<!-- 内联元素(行内元素) a span strong b em i 等都是内联元素
+内联元素的特点:
+1.支持部分样式(不支持 宽高 margin上下 padding上下 )
+2.高度有内容决定
+3.盒子并在一行
+4.代码换行,盒子之间会产生间距
+5.子元素是内联元素 父元素可以用text-align 属性 设置子元素水平对齐方式
+ -->
+<a href="#">天天百度</a>
+
+<!-- 解决代码换行 引起的内联元素之间有间隙的问题
+1.去掉内联元素之间的换行
+2.将内联元素的父级font-size 设置为 0 内联元素自身在设置font-size
+ -->
+
+ <div class="box3">
+   <a href="#">链接一</a>
+   <a href="#">链接一</a>
+   <a href="#">链接一</a>
+   <a href="#">链接一</a>
+   <a href="#">链接一</a>
+   <a href="#">链接一</a>
+   <a href="#">链接一</a>
+ </div>
+
+ <!-- 内联块元素: 比如 img  input
+内联块元素特性:
+1.支持全部样式属性
+2.如果没有设置宽高 宽高有内容决定
+3.盒子并在一行
+4.代码换行会产生间距
+5.子元素是内块元素 父元素可以用text-align 设置水平对齐方式
+ -->
+
+<div class="box4">
+  <a href="#">链接一</a>
+  <a href="#">链接二</a>
+  <a href="#">链接三</a>
+  <a href="#">链接四</a>
+</div>
+
+
+
+</body>
+</html>

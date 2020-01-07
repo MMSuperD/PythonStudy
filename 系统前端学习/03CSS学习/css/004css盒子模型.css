@@ -1,0 +1,72 @@
+
+
+/* 盒子真实尺寸 width + padding + border
+   height + padding + border
+ */
+
+.box{
+  background-color: gold;
+  width: 200px;
+  height: 200px;
+
+  /* margin */
+  /* 一个表示 top 50px right:0 bottom 0 left:50px */
+  margin: 50px;
+  /* 两个个表示 top 50px right:0 bottom 0 left:20px */
+  margin: 50px 20px;
+
+  /* 三个个个表示 top 50px right:20px bottom 200px left:100px */
+  margin: 50px 20px 200px;
+
+  /* 四个个表示 top 50px right:20px bottom 200px left:100px */
+  margin: 50px 20px 200px 100px;
+
+  /* margin 使用技巧 这个是水平居中对齐 但是auto 不能用于垂直居中对齐 */
+  /* margin: 100px auto 60px; */
+
+  /* padding */
+  /* 一个表示 top 50px right:0 bottom 0 left:50px */
+  padding: 50px;
+  /* 两个个表示 top 50px right:0 bottom 0 left:20px */
+  padding: 50px 20px;
+
+  /* 三个个个表示 top 50px right:20px bottom 200px left:100px */
+  padding: 50px 20px 200px;
+
+  /* 四个个表示 top 50px right:20px bottom 200px left:100px */
+  padding: 50px 20px 200px 100px;
+
+  /* border */
+  /* 这个表示 border 的颜色 */
+  border-color: red;
+  /* 这个是 border 顶部颜色 */
+  border-top-color: green;
+
+  /* 这个表示 border 的样式 */
+  border-style: solid;
+  /* 这个表示 border 顶部的样式 */
+  border-top-style:dashed;
+
+  /* 这个表示 border 的宽度 表示top right bottom right */
+  border-width: 1px;
+  /* 这个表示顶部border 的高度 */
+  border-top-width: 30px;
+
+  /* 这个是设置 圆角半径 */
+  border-top-left-radius: 30px;
+
+
+
+}
+
+.box2{
+  background-color: gold;
+  width: 200px;
+  height: 200px;
+
+  /* margin */
+
+  /* bording */
+
+  /* padding */
+}

@@ -1,0 +1,45 @@
+.box1{
+  width: 300px;
+  text-align: center;
+  background-color: gold;
+
+}
+
+.box2{
+  width: 300px;
+  text-align: center;
+  background-color: red;
+  margin-top: 10px;
+}
+
+.box3{
+  width: 300px;
+  height: 200px;
+  text-align: center;
+  background-color: red;
+  margin-top: 10px;
+  font-size: 0px;
+  text-align: left;
+}
+
+a{
+  background-color: pink;
+  font-size: 30px;
+}
+
+.box4{
+  width: 300px;
+  height: 200px;
+  margin-top: 10px;
+  background-color: grey;
+  /* 解决间隙问题 */
+  font-size: 0px;
+
+}
+
+.box4 a{
+  /* 这个是内联块属性的标志 */
+  display: inline-block;
+  font-size: 20px;
+
+}

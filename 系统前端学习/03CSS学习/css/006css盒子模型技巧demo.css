@@ -1,0 +1,21 @@
+
+body{
+  /* 默认的body 是有边距的 */
+  margin: 0;
+  margin-top: 50px;
+  margin-left: 50px;
+}
+
+.big_div{
+  background-color: pink;
+  width: 200px;
+  height: 156px;
+}
+
+.big_div div{
+  width: 200px;
+  height: 30px;
+  border: 1px solid green;
+  background-color: gold;
+  margin-top: -1px;
+}

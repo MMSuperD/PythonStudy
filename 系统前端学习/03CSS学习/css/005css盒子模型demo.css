@@ -1,0 +1,51 @@
+
+.style_title{
+  width: 400px;
+  height: 50px;
+  background-color: pink;
+
+  /* 直接设置行高 可以让他的文字居中 */
+  line-height: 50px;
+
+  /* 设置上面的线 */
+  border-top-width: 1px;
+  border-top-color: green;
+  border-top-style: solid;
+
+  /* 设置下面的线 */
+  border-bottom-width: 3px;
+  border-bottom-color: black;
+  border-bottom-style: solid;
+
+  /* 设置首行缩进 显示出空格的样式 */
+  text-indent: 20px;
+
+}
+
+.style_title2{
+  width: 380px;
+  height: 35px;
+  background-color: pink;
+
+  font-size: 20px;
+  /* 直接设置行高 可以让他的文字居中 */
+  line-height: 20px;
+  padding-top: 15px;
+
+  /* 设置上面的线 */
+  border-top-width: 1px;
+  border-top-color: green;
+  border-top-style: solid;
+
+  /* 设置下面的线 */
+  border-bottom-width: 3px;
+  border-bottom-color: black;
+  border-bottom-style: solid;
+
+  /* 设置首行缩进 显示出空格的样式 */
+  padding-left: 20px;
+
+
+
+
+}

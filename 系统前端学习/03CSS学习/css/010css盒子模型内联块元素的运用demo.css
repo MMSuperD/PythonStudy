@@ -1,0 +1,68 @@
+.box1{
+  /* 这个是解决代码代码之间的间隙 */
+  font-size: 0px;
+  width: 694px;
+  height: 50px;
+  background-color: #fff;
+
+}
+
+.box1 a{
+  /* 设置内联块元素标签 */
+  display: inline-block;
+  /* 去掉下划线 */
+  text-decoration: none;
+  width: 98px;
+  height: 48px;
+  /* 文字颜色 */
+  color: pink;
+  /* 文字大小 */
+  font-size: 16px;
+  /* 字体 */
+  font-family: 'Microsoft Yahei';
+  /* 背景颜色 */
+  background-color: #fff;
+  /* 设置边框 */
+  border: 1px solid gold;
+  /* 设置margin 正好排版 */
+  margin-left: -1px;
+  /* 设置文字居中  也可以在父类元素中设置*/
+  text-align: center;
+  /* 设置 行高 */
+  line-height: 50px;
+
+}
+
+/* 设置鼠标放上去之后的颜色动态 hover */
+.box1 a:hover{
+  background-color: gold;
+  color: #fff;
+}
+
+
+.intruduct{
+  display: block;
+  color: green;
+  width: 200px;
+  height: 60px;
+  font-size: 20px;
+  background-color: gold;
+}
+
+.title_h{
+  display: block;
+  /* width: 100px;
+  height: 60px; */
+  background-color: green;
+  font-size: 20px;
+  color: red;
+}
+
+.intruduct:hover .intruduct_detail{
+  display: block;
+}
+
+.intruduct_detail{
+  background-color: gold;
+  display: none;
+}
