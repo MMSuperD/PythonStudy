@@ -1,0 +1,78 @@
+.example1{
+  width: 600px;
+  height: 200px;
+  background-color: clear;
+}
+
+.example1 ul,.example3 ul{
+  /* 取消小圆点 */
+  list-style: none;
+  margin: 0px auto 0;
+  padding: 0px;
+}
+
+.example1 ul li a{
+  /* 取消下划线 */
+  text-decoration: none;
+  float: left;
+  background-color: pink;
+  color: black;
+  width: 98px;
+  height: 48px;
+  border: 1px solid gold;
+  margin-left: -1px;
+  text-align: center;
+  line-height: 50px;
+  font-size: 16px;
+}
+
+.example1 ul li a:hover{
+  background-color: gold;
+  color: white;
+}
+
+.example2{
+  width: 500px;
+  height: 200px;
+  background-color: green;
+}
+
+.example2 .icon_image{
+  width: 100px;
+  height: 100px;
+  background-color: pink;
+  margin: 10px;
+  float: left;
+}
+
+.example2 div{
+  padding: 10px;
+  /* margin: 100px; 只相对 同级 */
+}
+
+.example3{
+  width: 500px;
+  /* height: 200px; */
+  background-color: gold;
+}
+
+.example3 ul li {
+  background-color: green;
+  width: 100px;
+  height: 80px;
+  float: left;
+  margin: 10px;
+}
+
+/* 这个样式是为了清除浮动 和 margin-top 塌陷问题的 */
+.clearfix:before, .clearfix:after{
+  content: "";
+  display: table;
+}
+
+.clearfix:after{
+  clear: both;
+}
+.clearfix{
+  zoom:1;
+}

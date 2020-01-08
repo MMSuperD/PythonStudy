@@ -1,0 +1,55 @@
+
+body{
+  margin: 0px;
+  padding: 0px;
+}
+
+.total{
+  width: 100%;
+  height:100%;
+  background-color: red;
+  position: relative;
+}
+
+.box1 div,.box2 div,.box3 div {
+  width: 100%;
+  height: 200px;
+  background-color: white;
+  position: relative;
+}
+
+
+.box1_tip div{
+  width: 80px;
+  height: 80px;
+  background-color: green;
+  position: absolute;
+  left: 50%;
+  margin-left: -40px;
+  margin-top: 30px;
+  border-radius: 14px;
+}
+/* 通过居中位置来设置这个问题 */
+.box1_tip img{
+  width: 50%;
+  height: 50%;
+  left: 50%;
+  margin-left: 25%;
+  top: 50%;
+  margin-top: 25%;
+
+}
+
+.box1_tip p{
+  background-color: red;
+  width: 28px;
+  height: 28px;
+  position: absolute;
+  left: 62px;
+  top: -14px;
+  /* p 标签 本身室友margin的 */
+  margin: 0px;
+  text-align: center;
+  line-height: 28px;
+  border-radius: 14px;
+}
