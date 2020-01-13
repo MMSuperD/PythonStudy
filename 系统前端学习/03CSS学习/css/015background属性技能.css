@@ -1,0 +1,42 @@
+
+body{
+  margin: 0px;
+}
+
+div{
+  width: 100%;
+  height: auto;
+/* 这个是背景颜色 */
+  background-color: red;
+  /* 背景图片 */
+  background-image: url('../../01HTML_FirstDay/images/004.jpg');
+
+/*
+设置背景图片如何平铺属性 :
+no-repeat 没有平铺
+repeat 平铺
+repeat-x x轴平铺
+repeat-y y轴平铺
+round 环绕
+space 间距平铺
+*/
+  background-repeat:no-repeat;
+
+  /*
+  设置背景位置
+  第一个值:水平方向上x
+  第二个值:垂直方向上y
+  */
+  background-position: center 100px;
+/*
+这个是设置背景图片是固定 还是随页滚动条滚动
+scroll:随着页面滚动.
+inherit: 默认随着页面一起滚动
+local: 也是随着页面一起滚动
+fixed:固定不动
+
+ */
+  background-attachment:fixed;
+
+
+}
