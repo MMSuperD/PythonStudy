@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="./css/reset.css" type="text/css">
+  <link rel="stylesheet" href="./css/main.css" type="text/css">
+  <title>天天生鲜首页</title>
+</head>
+
+<body>
+
+<!-- 这个是头部样式 -->
+  <div class="header_contain">
+    <div class="header">
+      <!-- 这个是欢迎来到天天生鲜 -->
+      <div class="welcome lf">欢迎来到天天生鲜</div>
+
+      <!-- 右边模块 -->
+      <div class="user_right rf">
+        <!-- 没有登录时候的显示 -->
+        <!-- ul.login_btn>(li>a{#})*2 -->
+        <ul class="login_btn lf">
+          <li><a href="#">登录</a></li>
+          <li><span>|</span></li>
+          <li><a href="#">注册</a></li>
+        </ul>
+
+        <!-- 登录后的显示 -->
+        <div class="user_info lf">
+          欢迎您:<em>张三</em>
+        </div>
+
+        <!-- 公共的显示 -->
+        <!-- ul.user_btn>(li>a{#})*2 -->
+        <ul class="user_btn lf">
+          <li><span>|</span></li>
+          <li><a href="#">我的购物车</a></li>
+          <li><span>|</span></li>
+          <li><a href="#">我的订单</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+  </div>
+  <!-- 中间 logo 搜索 购物车 -->
+  <div class="content_center">
+    <a class="content_logo lf"><img src="./images/logo.png" alt="天天生鲜"></a>
+    <div class="content_search lf">
+        <form class="content_search_from" action="index.html" method="post">
+              <input class="content_search_input" type="text" name="" value="">
+              <input class="content_search_submit" type="submit" name="" value="搜索">
+        </form>
+    </div>
+    <div class="content_shopping rf"></div>
+  </div>
+
+
+
+</body>
+
+</html>

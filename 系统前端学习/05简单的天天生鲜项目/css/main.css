@@ -1,0 +1,108 @@
+/* 头部样式 */
+
+/* 默认的字体 大小 和 样式 */
+.body{
+  font-family: "Micorsoft Yahei";
+  font-size: 14px;
+  color: #000;
+}
+
+/* 头部样式 */
+.header{
+  background-color: gold;
+  width: 1200px;
+  height: 29px;
+  margin: 0 auto;
+  border-bottom: 1px solid #000;
+}
+
+/* 欢迎样式 */
+.welcome{
+  font-size: 12px;
+  color: red;
+  height: 29px;
+  line-height: 29px;
+}
+
+/* 头部右边样式 */
+.user_right{
+  background-color: cyan;
+}
+
+/* 登录样式*/
+.login_btn li, .user_btn li{
+  height: 29px;
+  line-height: 29px;
+  float: left;
+}
+
+
+.login_btn a, .user_btn a,.user_info{
+  height: 29px;
+  line-height: 29px;
+  padding: 0px 30px;
+  color: red;
+}
+
+.login_btn a:hover, .user_btn a:hover{
+  color: green;
+  background-color: grey;
+}
+
+/* 用户信息 首先隐藏 */
+.user_info{
+  display: block;
+}
+
+/* 登录模块隐藏 */
+.login_btn{
+  display: none;
+}
+
+.user_info em{
+  color: yellow;
+}
+
+/* 中间 logo 搜索 购物车 */
+.content_center{
+  width: 1200px;
+  height: 115px;
+  background-color: green;
+  margin: 0 auto;
+}
+.content_logo{
+  margin: 10px 0px 0px 10px;
+}
+
+.content_search{
+  width: 680px;
+  height: 40px;
+  margin-left: 100px;
+  margin-top: 34px;
+  background-color: gold;
+  border: 1px solid pink;
+
+}
+
+.content_search_from{
+  width: 680px;
+  height: 40px;
+  background-image: url('../images/icons.png') no-repeat;
+  background-position: 10px 10px;
+}
+
+.content_search_input{
+  border: 0px;
+  width: 550px;
+  height: 40px;
+  margin-left: 40px;
+
+}
+
+.content_shopping{
+  width: 200px;
+  height: 40px;
+  margin-left: 50px;
+  margin-top: 34px;
+  background-color: pink;
+}

@@ -1,0 +1,52 @@
+/* 清除常见的标签 自带的样式 */
+body,p,h1,h2,h3,h4,h5,h6,ul,dl,dt,form,input{
+  padding: 0px;
+  margin: 0px;
+}
+
+/* 去掉默认的小圆点 */
+ul{
+  list-style: none;
+}
+
+/* 去掉默认的下划线 */
+a{
+  text-decoration: none;
+}
+
+/* 设置不倾斜 */
+em{
+  font-style: normal;
+}
+
+/* 去掉img 在IE浏览器中默认生成的边框 */
+img{
+  border: 0px;
+}
+
+/* 让 h1~h6标签 继承父类的字体大小 */
+h1,h2,h3,h4,h5,h6{
+  font-size: 100%;
+}
+
+/* 左浮动 */
+.lf{
+  float: left;
+}
+
+/* 右浮动 */
+.rf{
+  float: right;
+}
+
+/* 清除浮动 解决margin-top 塌陷 */
+.clearfix:before,.clearfix:after{
+  content: "";
+  display: table;
+}
+.clearfix:after{
+  clear: both;
+}
+.clearfix{
+  zoom:1;
+}
