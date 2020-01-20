@@ -1,0 +1,141 @@
+
+/* 定义移动动画 */
+@keyframes action_moving{
+
+  from{
+    width: 100px;
+    height: 100px;
+  }
+
+  to{
+    width: 400px;
+    height: 400px;
+  }
+}
+
+/* 定义旋转动画 */
+@keyframes action_rotate{
+
+  from{
+    transform: rotate(0deg);
+  }
+
+  to{
+    transform: rotate(360000deg);
+  }
+}
+
+/* 定义loading动画 */
+@keyframes action_loading{
+
+  from{
+    transform:scaleY(1);
+    /* 透明度 */
+    opacity: 1;
+    filter: alpha(opacity=100);
+
+  }
+
+  to{
+    transform:scaleY(0.5);
+    /* 透明度 */
+    opacity: 0.2;
+    filter: alpha(opacity=20);
+  }
+}
+
+
+.box{
+  text-align: center;
+}
+.box_one{
+  width: 400px;
+  height: 400px;
+  margin: 50px auto 0;
+  background-color: pink;
+  line-height: 400px;
+  text-align: center;
+
+  /* 这里是动画名字 */
+  animation: action_moving;
+  /* 这里是动画时间 */
+  animation-duration: 1s;
+  /* 动画延迟五秒 */
+  animation-delay: 5s;
+  /* 一打开就启动动画 */
+  animation-play-state: paused;
+  /* 动画 展示的加速 */
+  animation-timing-function: ease;
+  /* 这个是 动画播放次数 infinite: 表示无数次  */
+  animation-iteration-count: infinite;
+
+  /* 按照原路返回动画 */
+  animation-direction: alternate;
+}
+
+.box_one:hover{
+  /* 触摸的时候停止动画 */
+  animation-play-state: running;
+}
+
+.box_two{
+  width: 200px;
+  height: 200px;
+  background-color: yellow;
+  margin: 50px auto 0;
+  line-height: 200px;
+  text-align: center;
+  animation: action_rotate 1000s;
+  animation-play-state: running;
+  animation-iteration-count: infinite;
+  /* animation-direction: alternate; */
+
+}
+
+.box_three{
+  width: 330px;
+  height: 400px;
+  margin: 50px auto 0;
+  background-color: pink;
+}
+
+.box_three div{
+  width: 30px;
+  height: 80px;
+  float: left;
+  margin-left: 30px;
+  margin-top: 50px;
+
+  /* 设置圆角 */
+  border-radius: 15px;
+  animation: action_loading 500ms alternate;
+  animation-play-state: running;
+  animation-iteration-count: infinite;
+
+}
+
+/* 这个是css3 中特定的选择器 */
+.box_three div:nth-child(1){
+  background-color: red;
+  animation-delay: 100ms;
+}
+
+.box_three div:nth-child(2){
+  background-color: green;
+  animation-delay: 200ms;
+}
+
+.box_three div:nth-child(3){
+  background-color: blue;
+  animation-delay: 300ms;
+}
+
+.box_three div:nth-child(4){
+  background-color: yellow;
+  animation-delay: 400ms;
+}
+
+.box_three div:nth-child(5){
+  background-color: purple;
+  animation-delay: 500ms;
+}

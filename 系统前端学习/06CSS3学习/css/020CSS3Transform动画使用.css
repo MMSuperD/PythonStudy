@@ -1,0 +1,85 @@
+
+.contain{
+  width: 800px;
+  height: 200px;
+  background-color: red;
+  margin: 50px auto 0;
+}
+
+.contain div{
+  width: 100px;
+  height: 100px;
+  margin-top: 10px;
+  margin-left: 10px;
+  background-color: green;
+  float: left;
+  transform: rotate(0deg);
+  transition: all 500ms ease;
+}
+
+.contain div:nth-child(2):hover{
+  transform: rotate(45deg);
+  transform-origin: left top;
+}
+
+.contain div:nth-child(3):hover{
+  transform: rotate(45deg);
+  transform-origin: left top;
+}
+
+.contain div:nth-child(4):hover{
+  transform: rotate(45deg);
+  transform-origin: center top;
+}
+
+.contain div:nth-child(5):hover{
+  transform: rotate(45deg);
+  transform-origin: right top;
+}
+
+.contain div:nth-child(6):hover{
+  transform: rotate(45deg);
+  transform-origin: left top;
+}
+
+.contain2{
+  width: 800px;
+  height: 200px;
+  background-color: pink;
+  margin: 50px auto 0;
+  position: relative;
+}
+
+.contain2 div{
+  width: 100px;
+  height: 100px;
+  transition: all 500ms ease;
+}
+
+.contain2 img:nth-child(2){
+  position: absolute;
+  background-color: yellow;
+  left: 0px;
+  transform-style: preserve-3d;
+  transform: perspective(800px) rotateY(0deg);
+  transition: all 500ms ease;
+  backface-visibility: hidden;
+}
+
+.contain2 img:nth-child(2):hover{
+  transform: perspective(800px) rotateY(45deg);
+}
+
+.contain2 img:nth-child(3){
+  position: absolute;
+  background-color: blue;
+  right: 0px;
+  transform-style: preserve-3d;
+  transform: perspective(800px) rotateY(180deg);
+  transition: all 2s ease;
+  backface-visibility: hidden;
+}
+
+.contain2 img:nth-child(3):hover{
+  transform: perspective(800px) rotateY(180deg);
+}

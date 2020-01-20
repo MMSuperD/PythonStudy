@@ -1,0 +1,47 @@
+
+.box1 h1{
+  text-align: center;
+}
+
+.box1_one{
+  width: 300px;
+  height: 100px;
+  background-color: green;
+  margin: 30px auto 0;
+  border-top-left-radius: 30px;
+  border-bottom-right-radius: 60px;
+
+  text-align: center;
+  line-height: 100px;
+}
+
+.box2 h1{
+  text-align: center;
+}
+
+.box2_one{
+  width: 300px;
+  height: 100px;
+  background-color: green;
+  margin: 30px auto 0;
+  border-top-left-radius: 30px;
+  border-bottom-right-radius: 60px;
+  text-align: center;
+  line-height: 100px;
+
+  /* 透明度 */
+  opacity: 0.3;
+  filter: alpha(opacity=30);
+}
+
+.box2_two{
+  width: 300px;
+  height: 100px;
+  /* 这个透明度 只针对某一项透明 */
+  background-color: rgba(0,0,0,0.3);
+  margin: 30px auto 0;
+  border-top-left-radius: 30px;
+  border-bottom-right-radius: 60px;
+  text-align: center;
+  line-height: 100px;
+}
