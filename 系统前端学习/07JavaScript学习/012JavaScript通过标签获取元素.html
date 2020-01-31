@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+
+  <script type="text/javascript">
+    // 这个是获取数据
+    // 获取数据源
+    var aList01 = ['美人鱼','疯狂动物城','魔兽','美国队长三','湄公河行动'];
+    var aLength = aList01.length;
+    var innerHTML = '';
+    window.onload = function() {
+
+      // 1.通过id 得到ul 对象
+      var oUl = document.getElementById('ul1');
+
+      // 2.通过找到ul 对象下面所有的li 标签
+      var oLi = oUl.getElementsByTagName('li');
+
+      for (var i = 0; i < aLength; i++) {
+          innerHTML += '<li>' + aList01[i] + '</li>';
+      }
+      oUl.innerHTML = innerHTML;
+
+      //修改颜色
+      var oLi2 = oUl.getElementsByTagName('li');
+      for (var i = 0; i < oLi2.length; i++) {
+          if (i % 2) {
+              oLi2[i].style.color = 'purple';
+          }
+      }
+
+    }
+  </script>
+
+  <style media="screen">
+    body{
+      margin:0px;
+      padding:0px;
+      background-color:lightgreen;
+    }
+
+    ul{
+      list-style: none;
+      margin: 50px auto 0px;
+      padding: 0px;
+      width: 200px;
+      background-color: pink;
+    }
+
+    li{
+      color: green;
+      font-size: 20px;
+      height: 50px;
+      box-sizing: border-box;
+      border-bottom: 1px solid #000;
+      text-align: center;
+      line-height: 50px;
+    }
+
+  </style>
+
+</head>
+<body>
+
+  <ul id="ul1">
+    <li>I love you</li>
+    <li>I love you</li>
+    <li>I love you</li>
+    <li>I love you</li>
+    <li>I love you</li>
+    <li>I love you</li>
+  </ul>
+  <ul id="ul2">
+    <li>I love you</li>
+    <li>I love you</li>
+    <li>I love you</li>
+    <li>I love you</li>
+    <li>I love you</li>
+    <li>I love you</li>
+  </ul>
+
+</body>
+</html>

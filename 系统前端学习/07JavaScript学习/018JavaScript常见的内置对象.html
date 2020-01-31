@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+
+  <script type="text/javascript">
+      window.onload = function() {
+
+        // 获取上一个页面跳转的地址 这个一般从服务器获取
+       var sUrl = document.referrer;
+
+       var oBtn = document.getElementById('btn01');
+       var oBody = document.getElementById('body01');
+       oBtn.onclick = function() {
+          if (sUrl) {
+              window.location.href = sUrl;
+              return;
+          }
+          window.location.href = "http://www.itcast.cn/";
+       };
+
+       // document.search 用法 这个是获取浏览器上面参数的值
+       // 我们可以获取浏览器上面参数的值:来做相应处理,得到不同界面
+       var sSearchString = window.location.search;
+
+       var sParamsValue = sSearchString.split("=")[1];
+
+       if (sParamsValue != '') {
+          if (sParamsValue == 1) {
+            oBody.style.backgroundColor = "red";
+          } else if (sParamsValue == 2) {
+            oBody.style.backgroundColor = "green";
+          }else if (sParamsValue == 3) {
+            oBody.style.backgroundColor = "blue";
+          }
+       }
+       // alert(sParamsValue);
+      }
+
+    // 常用的三种调试方式
+    function debugWay() {
+      // 弹框
+      alert('sdff');
+
+      // 浏览区log 日志
+      console.log("log");
+
+      // title
+      document.title = "标题"
+    }
+
+  </script>
+
+  <style media="screen">
+    a{
+      display: block;
+      height: 50px;
+    }
+  </style>
+</head>
+<body id="body01">
+
+  <input id="btn01" type="button" name="" value="跳转链接" style="width:200px;height:50px;font-size:20px;color:red;background-color:grey">
+  <a href="./018JavaScript常见的内置对象.html">链接一</a>
+  <a href="./018JavaScript常见的内置对象.html?aa=1">链接二</a>
+  <a href="./018JavaScript常见的内置对象.html?aa=2">链接三</a>
+  <a href="./018JavaScript常见的内置对象.html?aa=3">链接四</a>
+
+</body>
+</html>

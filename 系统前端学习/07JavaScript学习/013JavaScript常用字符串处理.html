@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>常用字符串处理</title>
+
+  <script type="text/javascript">
+    // 1.字符串合并操作
+    // stringCombine();
+    // 2.数字字符串转化为整形
+    //transformInt();
+    // 3.数字字符类型转化为float
+    //transformFloat();
+    // 4.把一个字符串分割成字符组成的数组
+    //stringTransformArray();
+    // 5.查询字符串中是否有某一个字符,并返回字符序号
+    // getChartIndex();
+    // 6.得到字符串中否一个字符
+    //getChar();
+    // 7截取字符串
+    //subString();
+    // 8.转为大写字母
+    //stringTransformUpper();
+    // 9.转为小写字母
+    //stringTransformLower();
+    // 10.字符串反转
+    stringReverse();
+
+
+
+    function stringCombine() {
+      var sString1 = 'I';
+      var sString2 = ' love you!'
+      alert(sString1 + sString2);
+    }
+    function transformInt() {
+      var sNumber = '1';
+      var iNumber = parseInt(sNumber);
+      alert(iNumber);
+    }
+    function transformFloat() {
+      var sNumber = '1.11';
+      var fNumber = parseFloat(sNumber);
+      alert(fNumber);
+    }
+    function stringTransformArray() {
+      var sData = "2020-12-12";
+      var aData = sData.split('-');
+      var aData2 = sData.split('');
+      alert(aData);
+      alert(aData2);
+    }
+    function getChartIndex() {
+      var sData = "2020-12-12";
+      var cData = sData.indexOf('-');
+      alert(cData);
+    }
+
+    function getChar() {
+      var sData = "2020-12-12";
+      var cData = sData.charAt(3);
+      alert(cData);
+    }
+    function subString() {
+      var sData = "2020-12-12";
+      //第一个参数表示: 什么地方开始 第二个参数表示:什么地方结束
+      var sEndData = sData.substring(5,7);
+      alert(sEndData);
+    }
+
+    function stringTransformUpper() {
+
+      var sT = 'UsdfsfsdfY45678)';
+      var sTU = sT.toUpperCase();
+      alert(sTU);
+
+    }
+
+    function stringTransformLower() {
+      var sT = 'UsdfsfsdfY45678)';
+      var sTL = sT.toLowerCase();
+      alert(sTL);
+    }
+
+    function stringReverse() {
+      var sT = 'UsdfsfsdfY45678)';
+      var sTEnd = sT.split('').reverse().join('');
+      alert(sTEnd);
+    }
+  </script>
+
+</head>
+<body>
+
+</body>
+</html>

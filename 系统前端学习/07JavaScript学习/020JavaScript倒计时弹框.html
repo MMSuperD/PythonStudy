@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+
+  <style media="screen">
+
+    .boxCover{
+      display: none;
+    }
+
+
+    .boxGrey{
+      position: fixed;
+      left: 0px;
+      top: 0px;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .boxContent{
+      position: absolute;
+      left: 50%;
+      margin-left: -100px;
+      top: 50%;
+      margin-top: -100px;
+      width: 200px;
+      height: 200px;
+      background-color: lightgreen;
+      text-align: center;
+      box-sizing: border-box;
+      line-height: 200px;
+      border-radius: 20px;
+    }
+
+  </style>
+
+  <script type="text/javascript">
+
+    window.onload = function() {
+
+        var oBoxCover = document.getElementById('boxCover');
+        var oBoxContent = document.getElementById('boxContent');
+        var oBtn01 = document.getElementById('btn01');
+
+
+        oBtn01.onclick = function(){
+            var iTimer = 5;
+            var innerHTML;
+            oBoxCover.style.display = 'block';
+
+            var timeInterval = setInterval(function () {
+
+              if (iTimer == 1) {
+                  clearInterval(timeInterval);
+                  oBoxCover.style.display = 'none';
+
+              }
+              iTimer -= 1;
+              oBoxContent.innerHTML = '倒计时' + iTimer + '秒';
+
+            }, 1000);
+
+
+        };
+
+
+
+
+
+    }
+
+
+  </script>
+
+</head>
+<body>
+
+  <div class="boxCover" id="boxCover">
+
+    <div class="boxGrey">
+
+      <div class="boxContent" id="boxContent">
+        倒计时5秒
+      </div>
+
+    </div>
+
+  </div>
+
+  <input type="button" name="" value="倒计时点击" id="btn01">
+
+</body>
+</html>

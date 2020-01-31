@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script type="text/javascript">
+        // 通过math 对象 得到一个 10 到 20 区间的整数随机数
+
+        var aList = new Array();
+
+        for (var i = 0; i < 30; i++) {
+            aList.push(getRandomInt10$20());
+        }
+
+        console.log(aList);
+        alert(aList);
+
+        function getRandomInt10$20() {
+              // random 函数只能获取0到1区间的数 并且都是小数
+              var random = Math.random();
+              var iNum01 = 10,iNum02=20;
+              // floor 函数向下取整  ceil 向上取整
+              var iRandom = Math.floor((iNum02 - iNum01 + 1) * random) + iNum01;
+            //  alert(iRandom);
+              return iRandom;
+
+        }
+
+  </script>
+</head>
+<body>
+
+</body>
+</html>

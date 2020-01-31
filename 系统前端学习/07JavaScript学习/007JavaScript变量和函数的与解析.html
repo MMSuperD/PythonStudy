@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <title>Document</title>
+
+  <script type="text/javascript">
+    <!-- 预解析会让声明的变量提前 -->
+    alert(iNumber);//弹出 Undefine
+
+    <!-- alert(iNum);// 没有定义的变量 这个会报错 -->
+
+    var iNumber = 10;
+    <!-- 预解析会让函数声明提前 -->
+    fnHello();
+
+    function fnHello(){
+      alert('I love you');
+
+    }
+
+  </script>
+
+</head>
+<body>
+
+</body>
+</html>

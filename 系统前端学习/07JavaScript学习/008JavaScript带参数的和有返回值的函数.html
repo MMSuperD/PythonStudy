@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+
+<script type="text/javascript">
+
+  window.onload = function(){
+
+    var oDiv = document.getElementById('box');
+
+    fnAddStyle('color','red');
+    fnAddStyle('fontSize','25px');
+    <!-- 带参数的函数 -->
+    function fnAddStyle(sytleKey,styleValue){
+          oDiv.style[sytleKey] = styleValue;
+    }
+
+    <!-- 带返回值的函数 -->
+    function fnAdd(a,b){
+      var c = a + b;
+      return c;
+    }
+
+    alert(fnAdd(1,2));
+  }
+
+
+</script>
+
+</head>
+<body>
+
+  <div id="box">
+    I love you
+  </div>
+
+</body>
+</html>

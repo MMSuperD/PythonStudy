@@ -1,0 +1,11 @@
+body{
+  background-color: green;
+}
+
+button{
+  background-color: pink;
+  font-size: 0.5rem;
+  width: 5rem;
+  height: 1.25rem;
+  color: black;
+}

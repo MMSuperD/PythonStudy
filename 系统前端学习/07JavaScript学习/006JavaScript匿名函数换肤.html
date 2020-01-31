@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" style="font-size:40px">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="./css/006JavaScript匿名函数换肤01.css" id="link01">
+  <title>Document</title>
+
+  <script type="text/javascript">
+
+      window.onload = function(){
+        <!-- 得到元素 -->
+        var oButton1 = document.getElementById('button01');
+        var oButton2 = document.getElementById('button02');
+
+        var oLink = document.getElementById('link01');
+
+        oButton1.onclick = function(){
+          oLink.href = './css/006JavaScript匿名函数换肤01.css';
+        }
+
+        oButton2.onclick = function(){
+          oLink.href = './css/006JavaScript匿名函数换肤02.css';
+        }
+
+      }
+
+  </script>
+
+</head>
+<body>
+  <button id="button01" type="button" name="nihao" title="皮肤一" >皮肤一</button>
+  <button id="button02" type="button" name="nihao" title="皮肤一">皮肤二</button>
+</body>
+</html>

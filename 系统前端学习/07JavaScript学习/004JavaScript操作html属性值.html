@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+
+  <script type="text/javascript">
+        window.onload = function(){
+
+        <!-- 通过id 的到该元素 -->
+        var oDiv = document.getElementById('div1');
+        alert(oDiv);
+
+        <!-- 修改样式 -->
+        var sWidth = 'width';
+        var sWidthValue = '300px';
+        <!-- 这个是通过中括号 来修改属性的值 -->
+        oDiv.style[sWidth] = sWidthValue;
+
+        <!-- 修改标签里面的内容 -->
+        alert(oDiv.innerHTML);
+        oDiv.innerHTML = " My name is WangDan";
+
+    }
+  </script>
+
+  <style media="screen">
+    .box{
+      width:100px;
+      height:200px;
+      background-color:red;
+    }
+  </style
+
+</head>
+<body>
+
+  <div class="box" id="div1">
+    I love you!
+  </div>
+
+</body>
+</html>

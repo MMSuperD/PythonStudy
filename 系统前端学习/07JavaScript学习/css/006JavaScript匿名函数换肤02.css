@@ -1,0 +1,12 @@
+body{
+  background-color: pink;
+}
+
+button{
+  background-color: purple;
+  font-size: 0.5rem;
+  width: 5rem;
+  height: 1.25rem;
+  color: white;
+  border-radius: 0.625rem;
+}

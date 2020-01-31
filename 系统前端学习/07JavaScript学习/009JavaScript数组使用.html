@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+
+  <script type="text/javascript">
+
+      // 通过实例化来创建一个数组
+      var aList01 = new Array(1,2,3,4);
+
+      // 通过直接方式来创建数组
+      var aList02 = [1,2,3,4];
+
+      // 多维数组
+      var aList03 = [aList01,aList02];
+
+      // 通过length 来获取数组长度
+      var length = aList01.length;
+      alert(length);
+
+      // 获取某一个元素
+      var temp = aList01[0];
+
+      // 给数组添加一个新的元素
+      aList02.push('b');
+
+      // 删除最后一个元素
+      aList01.pop();
+
+      // 从数组前面增加一个成员
+      aList01.unshift('hello');
+
+      // 从数组前面删除一个成员
+      aList01.shift();
+
+      //反转数组
+      aList01.reverse();
+
+      //返回第一次出现该元素的位置
+      aList01.indexOf('b');
+
+      // 删除元素 第一个参数:位置 第二个参数:删除几个  第三个参数:在删除的位置添加这些值
+      aList01(2,3,'e');
+
+      // 拼接元素 所有的元素通过'-'拼接起来 返回一个数组
+      aList01.join('-');
+
+
+  </script>
+
+</head>
+<body>
+
+</body>
+</html>

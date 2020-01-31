@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+
+  <script type="text/javascript">
+    window.onload = function() {
+
+        var oP = document.getElementsByTagName('p')[0];
+      //  alert(oP);
+        // 得到时间 这个时间就是活动时间,应该是从服务器获取的 ajax 请求
+        var sADate = new Date(2020,10,28,24,0,0);
+        // 这个是防止第一次空白
+        activeTime();
+
+        setInterval(activeTime, 1000);
+
+        function activeTime() {
+          // 得到当前时间
+          var sCDate = new Date();
+
+          // 得到相差时间
+          var time = parseInt((sADate - sCDate)/1000);
+
+          // 得到天数
+          var sDay = parseInt(time/84600);
+
+          // 得到小时数
+          var sHour = parseInt(((time % 86400)/3600));
+          //  alert(sHour);
+          // 得到分数
+          var sMinute = parseInt(((time % 86400)%3600)/60);
+          //    alert(sMinute);
+          // 得到秒数
+          var sSecond = parseInt(((time % 86400)%3600)%60);
+
+          // alert(sSecond);
+          // alert(oP.innerHTML);
+
+          var innerHTML = "距离活动时间:" + sDay + "天" + sHour + ":" + sMinute + ":"  + sSecond;
+          oP.innerHTML = innerHTML;
+        }
+
+    }
+  </script>
+
+
+</head>
+<body>
+
+  <p style="width:300px;height:40px;color:red;text-align:center; margin:50px auto 0px">距离活动时间</p>
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+
+  <script type="text/javascript">
+      //封闭函数第一种写法
+      (function() {
+        var iNumber = 1;
+        alert(iNumber);
+      })();
+
+      // 封闭函数第二种写法
+      !function() {
+        var iNumber = 2;
+        alert(iNumber);
+      }();
+
+      // 封闭函数第三种写法
+      ~function() {
+        var iNumber = 3;
+        alert(iNumber);
+      }();
+
+      // 在封闭函数前面加一个";" 避免js 在压缩的时候出错
+      ;~function() {
+        var iNumber = 4;
+        alert(iNumber);
+      }();
+  </script>
+
+</head>
+<body>
+
+</body>
+</html>

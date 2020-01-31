@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" style="font-size:40px">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script type="text/javascript">
+
+    // 获取数据源
+    var aList01 = ['美人鱼','疯狂动物城','魔兽','美国队长三','湄公河行动'];
+    var aLength = aList01.length;
+    var innerHTML = '';
+
+    for (var i = 0; i < aLength; i++) {
+        innerHTML += '<li>' + aList01[i] + '</li>'
+    }
+
+    window.onload = function(){
+      // 得到何止
+      var oUl1 = document.getElementById('ul1');
+      oUl1.innerHTML = innerHTML;
+    }
+
+  </script>
+  <style media="screen">
+    .box{
+      list-style: none;
+      font-size: 20px;
+      width: 7.5rem;
+      /* height: 7.5rem; */
+      background-color:pink;
+      margin: 1.25rem auto 0px;
+      padding: 0px;
+    }
+    .box li{
+      border-bottom: 1px solid #000;
+      height: 1.25rem;
+      box-sizing:border-box;
+      text-align: center;
+      line-height: 1.2rem;
+    }
+    body{
+      margin: 0px;
+    }
+  </style>
+</head>
+<body>
+
+  <ul class="box" id="ul1">
+    <li>I love you</li>
+    <li>I love you</li>
+    <li>I love you</li>
+    <li>I love you</li>
+    <li>I love you</li>
+    <li>I love you</li>
+  </ul>
+
+</body>
+</html>

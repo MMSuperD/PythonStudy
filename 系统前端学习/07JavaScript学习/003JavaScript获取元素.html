@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+
+  <script type="text/javascript">
+  <!-- 这个函数的作用就是 整个页面加载结束后 调用这个函数 -->
+    window.onload = function(){
+      var oDiv = document.getElementById('div1');
+      alert(oDiv);
+      oDiv.style.fontSize = '30px';
+      oDiv.style.color = 'pink';
+
+      <!-- 操作属性 如果是 class 需要写成 className-->
+      oDiv.className = 'box2';
+
+    }
+
+  </script>
+
+ <style media="screen">
+   .box2{
+     color:purple;
+     font-size:80px;
+     height:100px;
+   }
+ </style>
+
+</head>
+<body>
+
+  <div id="div1" class="" style="background-color:red;color:green;font-size:10px">
+    I love you !
+  </div>
+
+</body>
+</html>

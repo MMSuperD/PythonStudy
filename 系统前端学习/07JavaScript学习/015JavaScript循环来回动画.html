@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" style="font-size:20px">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+
+  <script type="text/javascript">
+
+    window.onload = function() {
+        oDiv = document.getElementById('box');
+
+        // 这个是一次性定时器
+      //  onceTimerOut();
+        // 这个是连续性定时器
+        intervalTimer();
+    }
+    var oDiv;
+    var iLeft = 0;
+    var iTrue = 1; //控制方向
+    var time01;
+    // 连续性定时器
+    var timer02;
+
+  // 一次性的定时器
+  function onceTimerOut() {
+
+    //  第一个参数也是函数:这里我们用的是匿名函数 第二个参数:时间毫秒 不需要单位
+     var timer01 = setTimeout(function () {
+       iLeft +=100;
+       oDiv.style.left = iLeft + 'px';
+       if (iLeft > 200) {
+         // 这个是关闭连续性定时器
+         clearTimeout(time01);
+       }
+     }, 30);
+
+  }
+
+  // 连续性的定时器
+  function intervalTimer() {
+    // 第一个参数:函数,第二个参数:时间单位毫秒 不需要带单位,一般做动画一般设置30
+    timer02 = setInterval(moving,30);
+
+  }
+
+  function moving() {
+      iLeft +=  (2 * iTrue);
+      oDiv.style.left = iLeft + 'px';
+      if (iLeft > 200) {
+        iTrue = -1;
+      }
+
+      if (iLeft < 0) {
+          iTrue = 1;
+      }
+  }
+
+  </script>
+
+  <style media="screen">
+    .box{
+      width: 2.5rem;
+      height: 2.5rem;
+      background-color: red;
+      border-radius: 1.25rem;
+      box-sizing: border-box;
+      position: absolute;
+      left: 0px;
+      top: 5rem;
+
+    }
+    body{
+      margin: 0px;
+      position: relative;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="box" id="box">
+
+  </div>
+
+</body>
+</html>
