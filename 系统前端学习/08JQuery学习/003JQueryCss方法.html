@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+    <script src="./js/jquery-3.4.1.js" charset="utf-8"></script>
+
+
+    <script type="text/javascript">
+      $(function() {
+
+        // $("这里面的写法和样式文件里面的写法一样");
+        // css({这里面是键值对,用逗号隔开});
+
+        // 读取fontSize
+
+        var $div1 = $('#div1');
+        // 这个是读取样式
+        var sFontSize = $div1.css("fontSize");
+        alert(sFontSize);
+
+        // 写样式 和以前一样
+
+      });
+    </script>
+
+
+</head>
+<body>
+
+  <div id="div1">这是第一个DIV</div>
+  <div class="div2">这个是第二个DIV</div>
+  <div class="div2">这个是第三个DIV</div>
+
+  <ul id="ul1">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+    <li>6</li>
+  </ul>
+
+</body>
+</html>

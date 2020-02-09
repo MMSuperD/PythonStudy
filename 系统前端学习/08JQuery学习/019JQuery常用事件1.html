@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="./js/jquery-3.4.1.js" charset="utf-8"></script>
+
+
+  <script type="text/javascript">
+    $(function() {
+
+      // 获取焦点
+      $('#input1').focus();
+
+      // 失去焦点
+      $('#input1').blur(function() {
+        alert('失去焦点回调,一般用来检查元素输入正确性');
+      });
+
+      // 这个是鼠标进入 这个又冒泡事件
+      // $('.div2').mouseover(function() {
+      //   alert('鼠标进入div2:mouseover');
+      // });
+      // $('.div1').mouseover(function() {
+      //   alert('鼠标进入div1:mouseover');
+      // });
+
+      // 这个是鼠标进入 这个子元素不冒泡了
+      // $('.div2').mouseenter(function() {
+      //   alert('鼠标进入div2:mouseenter');
+      // });
+      // $('.div1').mouseenter(function() {
+      //   alert('鼠标进入div1:mouseenter');
+      // });
+
+      // 同事绑定 鼠标进入 和鼠标离开时候的响应
+      $('.div2').hover(function(){
+        alert('鼠标进入div2');
+      },function() {
+        alert('鼠标离开div2');
+      });
+
+      // 用户提交表单
+      $('.form1').submit(function() {
+
+        alert('提交表单');
+
+      });
+
+
+
+
+
+    });
+
+    // ready 的完整写法 也就是dom 加载完成
+    // $(document).ready(function() {
+    //
+    // });
+
+    // 窗口大小发生变化
+    $(window).resize(function() {
+
+      document.title = $(window).width();
+
+    });
+
+
+
+  </script>
+
+  <style media="screen">
+
+  .form1{
+    display: block;
+    width: 300px;
+    margin: 50px auto 0px;
+  }
+
+  .form1 input{
+    display: block;
+    width: 300px;
+    height: 50px;
+    outline: none;
+    margin-top: 5px;
+    box-sizing: border-box;
+    border: 1px solid lightgreen;
+  }
+  .div1{
+    width: 300px;
+    height: 300px;
+    background-color: lightgreen;
+  }
+  .div2{
+    width: 100px;
+    height: 100px;
+    background-color: red;
+  }
+  </style>
+
+</head>
+<body>
+
+  <form action="http://www.baidu.com/" class="form1">
+    <input id="input1" type="text" name="username" autofocus>
+    <input type="text" name="password">
+    <input type="submit" name="" value="提交">
+  </form>
+
+  <div class="div1">
+    <div class="div2">
+
+    </div>
+  </div>
+
+</body>
+
+</html>

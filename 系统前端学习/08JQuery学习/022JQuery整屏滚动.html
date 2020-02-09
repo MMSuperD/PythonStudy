@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="../05简单的天天生鲜项目/css/reset.css" type="text/css">
+  <script src="./js/jquery-3.4.1.js" charset="utf-8"></script>
+
+
+  <script type="text/javascript">
+    $(function() {
+
+      var sContent = '\
+\图片素材网 免费下载电商素材,\
+\平面素材,APP/UI素材,H5素材.\
+\海报背景Banner素材专注png免抠\
+\素材帮助2000万设计师提升工作效率,\
+\快速设计出精品作品升职加薪奥!';
+
+      var $li = $('.con_content li');
+      var $ul = $('.con_content');
+       $li.html($li.html()+ sContent);
+
+      $ul.children().eq(0).addClass('moving').siblings().removeClass('moving');
+      $ul.children().eq(0).children().eq(0).addClass('img_moving');
+
+      $('.con_indicator li').click(function() {
+        var $windowH = $li.height();
+        // 第一步指示器变颜色
+        $(this).addClass('indicator_color').siblings().removeClass('indicator_color');
+
+        $ul.animate({'top':-$(this).index()*$windowH});
+        $ul.children().eq($(this).index()).addClass('moving').siblings().removeClass('moving');
+        // $ul.children().eq($(this).index()).children().eq(0).addClass('img_moving').parent().siblings().children().eq(0).removeClass('img_moving');
+          $ul.children().eq($(this).index()).children().eq(0).addClass('img_moving').parent().siblings().each(function() {
+            console.log($(this).children().eq(0).prop('class'));
+            $(this).children().eq(0).removeClass('img_moving');
+          });
+
+      });
+    });
+  </script>
+
+  <style media="screen">
+  
+  .con{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: red;
+    overflow: hidden;
+  }
+
+  .con_content{
+    position: absolute;
+    width: 100%;
+    height: 500%;
+    background-color: lightgreen;
+  }
+  .con_content li{
+    width: 100%;
+    height: 20%;
+    background-color: gold;
+    /* border-bottom: 1px solid purple; */
+    box-sizing: border-box;
+    font-size: 20px;
+    opacity: 0;
+    position: relative;
+  }
+
+
+  .moving{
+    opacity: 1!important;
+    transition: all 1000ms ease;
+  }
+
+  .img_moving{
+    left: 0px!important;
+    transition: all 1000ms ease;
+  }
+
+
+
+  .con_content li img{
+    display: block;
+    width: 100%;
+    height: 50%;
+    position: relative;
+    left: -500px;
+  }
+
+  .con_indicator{
+    position: absolute;
+    width: 30px;
+    height: 190px;
+    box-sizing: border-box;
+    top: 50%;
+    right: 10px;
+    margin-top: -95px;
+  }
+
+  .con_indicator li{
+    height: 30px;
+    border-radius: 50%;
+    background-color: grey;
+    box-sizing: border-box;
+    margin-top: 10px;
+    position: relative;
+    top: -10px;
+  }
+
+  .indicator_color{
+    background-color: red!important;
+  }
+
+
+
+  </style>
+
+</head>
+<body>
+
+
+  <div class="con">
+    <!-- 这个是内容 -->
+    <ul class="con_content">
+      <li><img src="./image/icon.jpg" alt="">1</li>
+      <li><img src="" alt="">2</li>
+      <li><img src="" alt="">3</li>
+      <li><img src="" alt="">4</li>
+      <li><img src="" alt="">5</li>
+    </ul>
+
+    <!-- 这个是指示器 -->
+    <ul class="con_indicator">
+      <li class="indicator_color moving"></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+
+  </div>
+
+</body>
+
+</html>

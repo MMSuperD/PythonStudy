@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+    <script src="./js/jquery-3.4.1.js" charset="utf-8"></script>
+    <!-- <script
+  src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script> -->
+
+    <script type="text/javascript">
+      $(function() {
+
+        var $div = $('.box');
+
+        $('.input_btn').click(function() {
+          $div.animate({'width':'200px'},1000,function() {
+            $div.animate({'height':'200px'}, 1000,function() {
+              $div.animate({'opacity':'0'},function() {
+                $div.css({'display':'none','opacity':'1'});
+              });
+            });
+          });
+        });
+
+
+
+
+      });
+    </script>
+
+    <style media="screen">
+
+        .input_btn{
+          width: 100px;
+          height: 50px;
+          background-color: lightgreen;
+          outline: none;
+        }
+        .box{
+          width: 100px;
+          height: 100px;
+          background-color: red;
+        }
+
+    </style>
+
+</head>
+<body>
+
+  <input class="input_btn" type="button" name="" value="animate动画效果">
+
+  <div class="box">
+    我的动画!
+  </div>
+
+</body>
+</html>

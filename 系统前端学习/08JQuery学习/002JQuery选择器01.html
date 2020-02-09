@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+    <script src="./js/jquery-3.4.1.js" charset="utf-8"></script>
+
+
+    <script type="text/javascript">
+      $(function() {
+
+        // $("这里面的写法和样式文件里面的写法一样");
+        // css({这里面是键值对,用逗号隔开});
+
+        // 获取第一个Div 元素
+        var $div1 = $('#div1');
+        $div1.css({'color':'red','font-size':'20px'});
+
+
+        // 通过类样式,可以一次性设置多个
+        var $div2 = $('.div2');
+        $div2.css({'background-color':'lightgreen'});
+
+        // 标签选择器
+        var $ul1 = $('#ul1 li');
+        $ul1.css({'background-color':'pink'});
+
+      });
+    </script>
+
+
+</head>
+<body>
+
+  <div id="div1">这是第一个DIV</div>
+  <div class="div2">这个是第二个DIV</div>
+  <div class="div2">这个是第三个DIV</div>
+
+  <ul id="ul1">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+    <li>6</li>
+  </ul>
+
+</body>
+</html>

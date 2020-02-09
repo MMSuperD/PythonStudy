@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+    <script src="./js/jquery-3.4.1.js" charset="utf-8"></script>
+
+
+    <script type="text/javascript">
+      $(function() {
+
+        // 获取input 的属性
+        var $btn = $('.btn');
+
+        // 获取name
+        var oName = $btn.prop('name');
+        alert(oName + ' ' + $btn.prop('value'));
+
+
+      });
+    </script>
+
+</head>
+<body>
+
+  <input class="btn" type="button" name="I love you" value="cnn">
+
+</body>
+</html>

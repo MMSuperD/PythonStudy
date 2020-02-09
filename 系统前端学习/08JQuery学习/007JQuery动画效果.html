@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+    <script src="./js/jquery-3.4.1.js" charset="utf-8"></script>
+
+
+    <script type="text/javascript">
+      $(function() {
+          var $div = $('.box');
+
+          $('.btn1').click(function() {
+
+            // $('.box').fadeIn(1000,function() {
+            //   alert(动画结束了);
+            // });
+
+            $('.box').toggle(1000,'',function() {
+               alert(动画结束了);
+            });
+
+
+          });
+
+
+
+      });
+    </script>
+
+    <style media="screen">
+
+      .btn1{
+        width: 100px;
+        height: 50px;
+        outline: none;
+      }
+      .box{
+        width: 300px;
+        height: 300px;
+        background-color: lightgreen;
+        color: black;
+        margin-top: 40px;
+        /* display: none; */
+      }
+    </style>
+
+</head>
+<body>
+
+  <input class="btn1" type="button" name="" value="动画效果">
+
+  <div class="box">
+    我要打开了哦
+  </div>
+
+</body>
+</html>

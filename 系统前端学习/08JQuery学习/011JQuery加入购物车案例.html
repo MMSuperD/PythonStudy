@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+    <script src="./js/jquery-3.4.1.js" charset="utf-8"></script>
+
+
+    <script type="text/javascript">
+      $(function() {
+
+        // 得到购物车的位置 和 加入够无耻的位置
+        var $shoppingBox = $('.shopping_box').offset();
+        var $addShopping = $('.shopping_add').offset();
+        var $point = $('.point_box');
+        var $number = $('.shopping_box em');
+
+        $('.shopping_add').click(function() {
+
+          var $shoppingBox = $('.shopping_box');
+          var $addShopping = $('.shopping_add');
+
+          // offset() 函数是得到元素的绝对位置
+
+          $point.css({'left':$addShopping.offset().left + parseInt($addShopping.outerWidth()/2) - 10,top:$addShopping.offset().top + parseInt($addShopping.outerHeight()/2) - 10});
+
+          $point.show().animate({'left':$shoppingBox.offset().left + parseInt($shoppingBox.outerWidth()/2) - 10,top:$shoppingBox.offset().top + parseInt($shoppingBox.outerHeight()/2) - 10},400,function() {
+                // 动画结束需要修改数字
+                // 这个是得到元素中的值
+                var $n = $number.html();
+                // 修改元素中的值
+                $number.html(parseInt($n) + 1);
+
+                // 动画结束隐藏
+                $point.hide();
+
+          });
+
+        });
+
+
+
+      });
+    </script>
+
+    <style media="screen">
+
+      .shopping_box{
+        width: 200px;
+        height: 50px;
+        color: black;
+        background-color: white;
+        border: 1px solid #000;
+        border-radius: 3px;
+        float: right;
+        margin-top: 50px;
+        margin-right: 200px;
+        text-align: center;
+        line-height: 50px;
+        box-sizing: border-box;
+        background-color: lightgreen;
+      }
+      .shopping_box em{
+        color: red;
+        font-size: 20px;
+        display: inline-block;
+        text-indent: 10px;
+      }
+
+      .shopping_add {
+        width: 200px;
+        height: 50px;
+        color: red;
+        border: 1px solid #000;
+        border-radius: 3px;
+        float: left;
+        margin-top: 300px;
+        margin-left: 200px;
+        text-align: center;
+        line-height: 50px;
+        box-sizing: border-box;
+        background-color: yellow;
+        outline: none;
+        font-size: 20px;
+      }
+
+      .point_box{
+        width: 20px;
+        height: 20px;
+        background-color: red;
+        border-radius: 50%;
+        position: fixed;
+        left: 0;
+        top: 0;
+        z-index: 99999;
+        text-align: center;
+        line-height: 20px;
+        display: none;
+
+      }
+
+    </style>
+
+</head>
+<body>
+
+  <div class="shopping_box">购物车<em>0</em></div>
+  <input class="shopping_add" type="button" name="" value="加入购物车">
+  <div class="point_box">1</div>
+
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+    <script src="./js/jquery-3.4.1.js" charset="utf-8"></script>
+
+
+    <script type="text/javascript">
+      $(function() {
+
+        var $ul = $('.con ul');
+
+        var $a = $('.con ul li a');
+
+        $ul.children().each(function() {
+
+            $(this).css({'left':30*$(this).index()});
+        });
+
+        // 点击时间
+        $a.click(function(){
+
+            $(this).parent().animate({'left':30*$(this).parent().index()});
+
+            $(this).parent().prevAll().each(function() {
+              $(this).animate({'left':30*$(this).index()});
+            });
+
+            $(this).parent().nextAll().each(function() {
+              console.log($(this).index());
+              $(this).animate({'left':($(this).index())*30 + 370});
+            });
+
+        });
+
+
+      });
+    </script>
+
+    <style media="screen">
+      .con{
+        width: 520px;
+        height: 200px;
+        background-color: red;
+        margin: 50px auto 0px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      ul{
+        list-style: none;
+        padding: 0px;
+        margin: 0px;
+        font-size: 0px;
+        width: 2000px;
+        position: absolute;
+        left: 0px;
+        top: 0px;
+      }
+
+      .ul_con li{
+        height: 200px;
+        width: 380px;
+        background-color: lightgreen;
+        display: inline-block;
+        box-sizing:border-box;
+        font-size: 20px;
+        position: absolute;
+
+      }
+
+      .ul_con li a, .ul_con li img{
+        display: inline-block;
+        height: 200px;
+        /* float: left; */
+        box-sizing:border-box;
+        padding: 0px;
+        margin: 0px;
+        position: absolute;
+        top: 0px;
+
+      }
+      .ul_con li a{
+        width: 30px;
+        background-color: purple;
+        /* border-left: 1px solid #000; */
+        text-align: center;
+        line-height: 200px;
+        left: 0px;
+      }
+      .ul_con li img{
+        width: 370px;
+        background-color: green;
+        left: 30px;
+
+      }
+
+
+    </style>
+
+</head>
+<body>
+
+    <!-- div.con>ul.ul_con>(li>a{$}+img)*5 -->
+    <div class="con">
+      <ul class="ul_con">
+        <li><a>1</a><img src="" alt=""></li>
+        <li><a>2</a><img src="" alt=""></li>
+        <li><a>3</a><img src="" alt=""></li>
+        <li><a>4</a><img src="" alt=""></li>
+        <li><a>5</a><img src="" alt=""></li>
+      </ul>
+    </div>
+
+
+</body>
+</html>

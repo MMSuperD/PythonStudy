@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="./js/jquery-3.4.1.js" charset="utf-8"></script>
+
+
+  <script type="text/javascript">
+    $(function() {
+        var $input_text = $('.header_con input:nth-child(1)');
+        var $add_btn = $('.header_con input:nth-child(2)');
+        var $ul = $('ul');
+
+        $add_btn.bind('click', function() {
+
+            var text = $input_text.val();
+
+            if (text == '') {
+                alert('输入的文字不能为空');
+                return;
+            }
+            $ul.append(create_content(text));
+        });
+
+        // 现在是绑定删除 向上 上下 按钮事件
+        $ul.delegate('li>a','click',function() {
+
+            // 这个表示删除
+            if ($(this).html() == '删除' ) {
+
+              $(this).parent().remove();
+
+            }
+            // 这个表示向上移动
+            if ($(this).html() == '⏫' ) {
+              if (!($(this).parent().prev().length)) {
+                  alert('已经到顶了');
+                  return;
+              }
+              $(this).parent().insertBefore($(this).parent().prev());
+            }
+            // 这个表示向下移动
+            if ($(this).html() == '🔽' ) {
+              if (!($(this).parent().next().length)) {
+                  alert('已经到低了');
+                  return;
+              }
+              $(this).parent().insertAfter($(this).parent().next());
+            }
+        });
+
+
+    });
+
+    // 创建要添加的内容
+    function create_content(content) {
+      if (content == '') {
+          alert('添加的文字不能为空');
+          return;
+      }
+
+      var temp_str = '<li>\
+        <a>'+ content +'</a>\
+        <a>删除</a>\
+        <a>⏫</a>\
+        <a>🔽</a>\
+      </li>'
+
+      return temp_str;
+    }
+
+  </script>
+
+  <style media="screen">
+  ul{
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+    width: 400px;
+    margin:0px auto;
+    /* 解决margin-top 塌陷问题 */
+    font-size: 0px;
+  }
+  h2{
+    text-align: center;
+  }
+  .header_con{
+    width: 400px;
+    height: 50px;
+    box-sizing: border-box;
+    font-size: 0px;
+    margin: 50px auto 0px;
+  }
+
+  .header_con input{
+    height: 50px;
+    display: inline-block;
+    margin: 0px;
+    padding: 0px;
+    outline-style: none;
+    border-radius: 0px;
+    box-sizing: border-box;
+    font-size: 20px;
+  }
+
+  .header_con input:nth-child(1){
+    width: 340px;
+    text-indent: 5px;
+
+  }
+  .header_con input:nth-child(2){
+    width: 60px;
+    /* 这句话是为了适配不同浏览器 */
+    -webkit-appearance: button;
+
+  }
+
+  ul li{
+    border-bottom: 1px solid gold;
+    box-sizing: border-box;
+    height: 50px;
+
+  }
+
+  ul li a{
+    float: left;
+    height: 50px;
+    width: 50px;
+    text-align: center;
+    line-height: 50px;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-size: 20px;
+    margin: 0px;
+  }
+
+
+
+  ul li a:nth-child(1){
+    width: 250px;
+    text-align: left;
+    text-indent: 20px;
+  }
+
+  </style>
+
+</head>
+<body>
+  <h2>to do list 展示</h2>
+  <div class="header_con">
+    <input type="text" placeholder="请输入要添加的课程">
+    <input type="button" value="增加" name="add">
+  </div>
+
+  <ul>
+    <li>
+      <a>1</a>
+      <a>删除</a>
+      <a>⏫</a>
+      <a>🔽</a>
+    </li>
+    <li>
+      <a>2</a>
+      <a>删除</a>
+      <a>⏫</a>
+      <a>🔽</a>
+    </li>
+    <li>
+      <a>3</a>
+      <a>删除</a>
+      <a>⏫</a>
+      <a>🔽</a>
+    </li>
+  </ul>
+
+
+</body>
+
+</html>

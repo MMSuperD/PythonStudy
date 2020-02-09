@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="./js/jquery-3.4.1.js" charset="utf-8"></script>
+
+
+    <script type="text/javascript">
+      $(function() {
+
+        // 获取元素
+        var $inputBtn = $('.div_select_con input');
+        var $conentDiv = $('.div_conent_con div');
+
+
+        //默认选中第一个
+        $inputBtn.eq(0).addClass('input_select');
+        $conentDiv.eq(0).addClass('div_select_content');
+
+        // 添加点击事件
+        $inputBtn.click(function(){
+
+          // 使用$的时候,一定判断是否存在 lenght 如果不存在肯定就有问题
+
+          // 现在就需要设置点击的按钮样式
+          $(this).addClass('input_select').siblings().removeClass('input_select');
+
+          // 联动
+          $conentDiv.eq($(this).index()).addClass('div_select_content').siblings().removeClass('div_select_content');
+
+        });
+
+
+      });
+    </script>
+
+    <style media="screen">
+
+      .div_select_con{
+        display: inline-block;
+        background-color: red;
+      }
+
+      .div_select_con input{
+        width: 100px;
+        height: 50px;
+        border: 0px;
+        font-size: 20px;
+        background-color: grey;
+        color: white;
+        border-radius: 3px;
+        box-sizing: border-box;
+        padding: 0px;
+        /* 浮动是为了解决元素之间的间距 */
+        float: left;
+        border-style: none;
+        outline: none;
+      }
+
+      .input_select {
+        color: lightgreen!important;
+        background-color: yellow!important;
+      }
+
+      .div_conent_con div{
+        width: 300px;
+        height: 300px;
+        display: none;
+        background-color: pink;
+        text-align: center;
+        line-height: 300px;
+        font-size: 20px;
+      }
+
+      .div_select_content{
+        display: block!important;
+      }
+    </style>
+
+</head>
+<body style="font-size:0px">
+    <div class="div_select_con">
+      <input type="button" value="按钮一">
+      <input type="button" value="按钮二">
+      <input type="button" value="按钮三">
+    </div>
+
+    <div class="div_conent_con">
+      <div>选项卡内容一</div>
+      <div>选项卡内容二</div>
+      <div>选项卡内容三</div>
+    </div>
+
+</body>
+</html>
