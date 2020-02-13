@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="./js/jquery-3.4.1.js" charset="utf-8"></script>
+
+
+  <script type="text/javascript">
+    $(function() {
+
+      // 请求数据
+      $.ajax({
+        url:"json/data1.json",
+        type:"get",
+        dataType:"json"
+      })
+      .done(function(data) {
+        console.log(data);
+          // alert(data);
+          $('.contain p:nth-child(1)').html($('.contain p:nth-child(1)').html() + data.name);
+          $('.contain p:nth-child(2)').html($('.contain p:nth-child(2)').html() + data.age);
+
+      })
+      .fail(function(error) {
+        console.log(error);
+         alert(error.toString());
+      });
+
+
+    });
+
+
+
+  </script>
+
+  <style media="screen">
+
+
+
+  </style>
+
+</head>
+<body>
+
+  <div class="contain">
+    <p>姓名:</p>
+    <p>年龄:</p>
+  </div>
+
+</body>
+
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <title>Document</title>
+  <script src="./js/jquery-3.4.1.js" charset="utf-8"></script>
+  <!-- 这个学习网站 https://jqueryui.com/ -->
+  <script src="./js/jquery-ui.min.js" charset="utf-8"></script>
+
+  <!-- 具体学习api :https://jqueryui.com/draggable/ -->
+
+  <script type="text/javascript">
+    $(function(){
+
+      var $progress_bar = $('.progress_bar');
+      var $drag_box = $(".drag_box");
+
+      $drag_box.draggable({
+        // 这个表示水平方向拖拽
+        axis:"x",
+        // 这个表示只能在父容器中拖动
+        containment:"parent",
+        option:"cursor",
+        delay:300,
+        drag:function(even,ui) {
+          $progress_bar.css({'width':$drag_box.css('left')});
+        }
+      });
+
+
+    });
+  </script>
+
+  <style media="screen">
+    .con{
+      background-color: white;
+      width: 400px;
+      height: 50px;
+      box-sizing: border-box;
+      border: 1px solid #000;
+      margin: 50px auto 0px;
+      border-radius: 25px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .progress_bar{
+      background-color: red;
+      width: 100px;
+      height: 100%;
+      box-sizing: border-box;
+    }
+    .drag_box{
+      background-color: purple;
+      width: 30px;
+      height: 100px;
+      position: absolute;
+      top: 0px;
+      left: 100px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="con">
+    <div class="progress_bar"></div>
+    <div class="drag_box"></div>
+  </div>
+
+</body>
+</html>

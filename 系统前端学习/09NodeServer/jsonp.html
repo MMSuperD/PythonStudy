@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <!-- https://sug.so.360.cn/suggest?callback=suggest_so&encodein=utf-8&encodeout=utf-8&format=json&fields=word&word=d&llbq=A5%2CB5%2CC5%2CD5 -->
+    <script src="./js/jquery-3.4.1.js" charset="utf-8"></script>
+
+    <script type="text/javascript">
+
+      $(function(){
+
+        $.ajax({
+          url:'https://sug.so.360.cn/suggest',
+          type:"get",
+          dataType:"jsonp",
+          data:{'word':"d","llbq":"A5%2CB5%2CC5%2CD5"}
+        })
+        .done(function(data) {
+            console.log(data);
+        })
+        .fail(function(error) {
+
+        });
+
+        $.ajax({
+          url:'js/jsonpData.js',
+          type:"get",
+          dataType:"jsonp",
+          jsonpCallback:"callback"
+        })
+        .done(function(data) {
+            console.log(data);
+        })
+        .fail(function(error) {
+
+        });
+
+      });
+
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>

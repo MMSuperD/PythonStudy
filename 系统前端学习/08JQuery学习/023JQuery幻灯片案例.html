@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="../05简单的天天生鲜项目/css/reset.css" type="text/css">
+  <script src="./js/jquery-3.4.1.js" charset="utf-8"></script>
+
+
+  <script type="text/javascript">
+    $(function() {
+
+      var $li = $('.ul1 li');
+      // 当前的位置
+      var $index = 0;
+
+      // 当前点击的位置
+      var clickIndex = 0;
+
+      // 初始化 除了第一张在固定的位置,其他的图片都到后面位置去(偏移400px)
+      $li.not(':first').css({'left':'400px'});
+
+
+
+      // 现在就是点击事件动画了
+      $('.ul2 li').click(function() {
+
+        clickIndex = $(this).index();
+        if (clickIndex > $index) {
+
+        // 第一步先让点击的位置,最终图片挪到右边
+        var $tempLi = $('.ul1 li').eq(clickIndex);
+        console.log($tempLi.length);
+        var $currentLi = $('.ul1 li').eq($index);
+        $tempLi.css({'left':'400px'});
+        $currentLi.animate({'left':'-400px'});
+        $tempLi.animate({'left':'0px'});
+
+      } else if (clickIndex < $index) {
+        // 第一步先让点击的位置,最终图片挪到左边
+        var $tempLi = $('.ul1 li').eq(clickIndex);
+        var $currentLi = $('.ul1 li').eq($index);
+        $tempLi.css({'left':'-400px'});
+        $currentLi.animate({'left':'400px'});
+        $tempLi.animate({'left':'0px'});
+
+      }
+
+        $index = clickIndex;
+        // 刷新指示器的样式
+        $(this).addClass('indicator_select').siblings().removeClass('indicator_select');
+
+      });
+
+
+      // 添加定时器,自动滚动
+      var timer = setInterval(autoplay, 3000);
+
+      $('.list_con').hover(function() {
+        // 这里是进入的时候
+        clearInterval(timer);
+
+      },function() {
+        // 这里是离开的时候
+        timer = setInterval(autoplay, 3000);
+      });
+
+      function autoplay() {
+
+        clickIndex++;
+        if (clickIndex == 5) {
+          clickIndex = 0;
+        }
+
+        if (clickIndex > $index) {
+
+        // 第一步先让点击的位置,最终图片挪到右边
+        var $tempLi = $('.ul1 li').eq(clickIndex);
+        console.log($tempLi.length);
+        var $currentLi = $('.ul1 li').eq($index);
+        $tempLi.css({'left':'400px'});
+        $currentLi.animate({'left':'-400px'});
+        $tempLi.animate({'left':'0px'});
+
+      } else if (clickIndex < $index) {
+        // 第一步先让点击的位置,最终图片挪到左边
+        var $tempLi = $('.ul1 li').eq(clickIndex);
+        var $currentLi = $('.ul1 li').eq($index);
+        $tempLi.css({'left':'-400px'});
+        $currentLi.animate({'left':'400px'});
+        $tempLi.animate({'left':'0px'});
+
+      }
+
+        $index = clickIndex;
+        // 刷新指示器的样式
+        $('ul2 li').eq($index).addClass('indicator_select').siblings().removeClass('indicator_select');
+
+      }
+
+
+
+    });
+  </script>
+
+  <style media="screen">
+
+    .list_con{
+      width: 400px;
+      height: 200px;
+      background-color: lightgreen;
+      margin: 50px auto 0px;
+      position: relative;
+      cursor: pointer;
+      /* overflow: hidden; */
+    }
+
+    .ul1{
+
+    }
+
+    .ul1 li{
+      height: 200px;
+      width: 400px;
+      background-color: red;
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      /* 解决margin-top 塌陷问题 */
+      font-size: 0px;
+    }
+
+    .ul1 li img{
+      display: block;
+      height: 100%;
+      width: 100%;
+    }
+
+    .ul2{
+      position: absolute;
+      top: 160px;
+      left: 50%;
+      margin-left: -75px;
+    }
+
+    .ul2 li{
+      height: 30px;
+      width: 30px;
+      float: left;
+      background-color: grey;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 30px;
+      margin-left: 5px;
+      position: relative;
+      left: -5px;
+    }
+
+    .indicator_select{
+      background-color: purple!important;
+    }
+  </style>
+
+</head>
+<body>
+
+  <div class="list_con">
+    <ul class="ul1">
+      <li>1<img src="./image/icon.jpg" alt=""></li>
+      <li>2<img src="./image/icon.jpg" alt=""></li>
+      <li>3<img src="./image/icon.jpg" alt=""></li>
+      <li>4<img src="./image/icon.jpg" alt=""></li>
+      <li>5<img src="./image/icon.jpg" alt=""></li>
+    </ul>
+    <ul class="ul2">
+      <li class="indicator_select">1</li>
+      <li>2</li>
+      <li>3</li>
+      <li>4</li>
+      <li>5</li>
+    </ul>
+  </div>
+
+
+</body>
+
+</html>

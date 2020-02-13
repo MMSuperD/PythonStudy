@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="./js/jquery-3.4.1.js" charset="utf-8"></script>
+  <script src="./js/jquery.cookie.js" charset="utf-8"></script>
+
+  <!-- 文档查看 github:jquery-cookie 使用 -->
+
+  <script type="text/javascript">
+    $(function() {
+      /*
+      1.不同的浏览器存放的cookie位置不一样，也是不能通用的。
+
+      2.cookie的存储是以域名形式进行区分的，不同的域下存储的cookie是独立的。
+
+      3.我们可以设置cookie生效的域（当前设置cookie所在域的子域），也就是说，我们能够操作的cookie是当前域以及当前域下的所有子域
+
+      4.一个域名下存放的cookie的个数是有限制的，不同的浏览器存放的个数不一样,一般为20个。
+
+      5.每个cookie存放的内容大小也是有限制的，不同的浏览器存放大小不一样，一般为4KB。
+
+      6.cookie也可以设置过期的时间，默认是会话结束的时候，当时间到期自动销毁
+      */
+      // 通过cookie 存值
+      $.cookie('name', 'value', {
+        expires: 7,
+        path: '/'
+      });
+
+      // 通过cookie 取值
+      alert($.cookie('name'));
+
+      function lacalStorageData() {
+        /*
+        1.生命周期：持久化的本地存储，除非主动删除数据，否则数据是永远不会过期的。
+
+        2.存储的信息在同一域中是共享的。
+
+        3.当本页操作（新增、修改、删除）了localStorage的时候，本页面不会触发storage事件,但是别的页面会触发storage事件。
+
+        4.大小：据说是5M（跟浏览器厂商有关系）
+
+        5.在非IE下的浏览中可以本地打开。IE浏览器要在服务器中打开。
+
+        6.localStorage本质上是对字符串的读取，如果存储内容多的话会消耗内存空间，会导致页面变卡
+
+        7.localStorage受同源策略的限制
+        */
+        // 设置
+        lacalStorage.setItem('username', 'zxy');
+
+        // 获取
+        localStorage.getItem('username');
+
+        // 删除
+        localStorage.remove('username');
+
+      }
+
+
+      function sessionStorageData() {
+        /*
+        用于本地存储一个会话（session）中的数据，
+        这些数据只有在同一个会话中的页面才能访问并且当会话结束后数据也随之销毁。
+        因此sessionStorage不是一种持久化的本地存储，仅仅是会话级别的存储。
+        也就是说只要这个浏览器窗口没有关闭，即使刷新页面或进入同源另一页面，
+        数据仍然存在。关闭窗口后，sessionStorage即被销毁，或者在新窗口打开同源的另一个页面，
+        sessionStorage也是没有的。
+        */
+        // 设置
+        sessionStorage.setItem('username', 'zxy');
+
+        // 获取
+        sessionStorage.getItem('username');
+
+        // 删除
+        sessionStorage.remove('username');
+
+      }
+
+      /*
+      cookie,localStorage,sessionStorage区别
+
+      相同：在本地（浏览器端）存储数据。
+
+      不同：
+
+
+      1.localStorage只要在相同的协议、相同的主机名、相同的端口下，就能读取/修改到同一份localStorage数据。
+
+      2.sessionStorage比localStorage更严苛一点，除了协议、主机名、端口外，还要求在同一窗口（也就是浏览器的标签页）下。
+
+      3.localStorage是永久存储，除非手动删除。
+
+      4.sessionStorage当会话结束（当前页面关闭的时候，自动销毁）
+
+      5.cookie的数据会在每一次发送http请求的时候，同时发送给服务器而localStorage、sessionStorage不会
+
+      */
+
+
+    });
+  </script>
+
+  <style media="screen">
+
+
+
+  </style>
+
+</head>
+
+<body>
+
+
+</body>
+
+</html>
