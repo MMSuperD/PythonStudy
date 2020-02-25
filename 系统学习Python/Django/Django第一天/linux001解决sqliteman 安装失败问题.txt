@@ -1,0 +1,108 @@
+首先ubuntu用户直接
+sudo apt-get install sqliteman
+然后关掉浏览器好好工作
+这里说的是debian用户
+debian不是一般的ken
+
+转载注明出处
+http://blog.csdn.net/isinstance/article/details/51422477
+
+好吧，开始
+首先，下载一个sqliteman.tar.bz2
+我也上传了一个到CSDN的资源上，免费
+可以到我的资源主页去下
+如果不放心想自己下官网的话
+
+这里有个sourceforge的链接
+sqliteman
+曾经我也试着百度过，但是百度嘛，出来的都是啥jb
+上面那个是GG出来的结果
+解压和tar.gz有点不同
+
+tar -jxvf  some.tar.bz2
+然后准备安装各种库
+
+su
+apt-get install libsqlite3-0 libsqlite3-dev cmake
+apt-get install qt-sdk
+这个sdk包有几百兆。。。
+然后就是下面进入sqlite的主目录
+
+推荐：Debian Lenny上Eclipse的安装
+
+一，下载 1.http://www.eclipse.org/downloads/ 下载（Eclipse IDE for C/C++ Linux Developers (includes Incubating components), 121 M 然后tar -xzvf eclips
+
+cmake -DWANT_RESOURCES=1
+我这里有个报错
+
+cmake -DWANT_RESOURCES=1
+-- Sqliteman 1.2.2 will be installed into /usr/local -- *** Release build (use -DWANT_DEBUG=1 for debug one) *** -- Looking for Q_WS_X11 -- Looking for Q_WS_X11 - found -- Looking for Q_WS_WIN -- Looking for Q_WS_WIN - not found -- Looking for Q_WS_QWS -- Looking for Q_WS_QWS - not found -- Looking for Q_WS_MAC -- Looking for Q_WS_MAC - not found -- Found Qt4: /usr/bin/qmake (found suitable version "4.8.6", minimum required is "4.2.0") -- Qt4version:4.8.6 -- Qt4includes:/usr/include/qt4/QtDesigner/usr/include/qt4/QtDeclarative/usr/include/qt4/QtScriptTools/usr/include/qt4/QtDBus/usr/include/qt4/QtDesigner/usr/include/qt4/QtXml/usr/include/qt4/QtSql/usr/include/qt4/QtOpenGL/usr/include/qt4/QtNetwork/usr/include/qt4/phonon/usr/include/qt4/QtXmlPatterns/usr/include/qt4/QtWebKit/usr/include/qt4/QtHelp/usr/include/qt4/QtUiTools/usr/include/qt4/QtTest/usr/include/qt4/QtScript/usr/include/qt4/QtSvg/usr/include/qt4/Qt3Support/usr/include/qt4/QtGui/usr/include/qt4/QtCore/usr/share/qt4/mkspecs/default/usr/include/qt4/usr/include/qt4/QtCore -- Qt4libs:/usr/lib/x86_64-linux-gnu CMake Error at cmake/modules/FindQScintilla.cmake:53 (MESSAGE):
+  Could not find QScintilla library
+Call Stack (most recent call first):
+  CMakeLists.txt:132 (FIND_PACKAGE)
+然后咱们换个方法
+
+ cmake -DWANT_INTERNAL_QSCINTILLA=1
+这一步时间有点长
+这就可以了
+然后就是
+
+make
+然后
+
+make install
+就装完了
+
+root@Hero:/usr/local/src/sqliteman-1.2.2# make install
+[ 57%] Built target tora_qscintilla2_lib
+[100%] Built target sqliteman
+Install the project...
+-- Install configuration: "RELEASE"
+-- Installing: /usr/local/share/applications/sqliteman.desktop
+-- Installing: /usr/local/share/icons/hicolor/sqliteman.png
+-- Installing: /usr/local/bin/sqliteman
+这里写图片描述
+
+推荐：[Debian]安装thunderbird出错
+
+安装thunderbird时，运行的时候出现了如下的错误： ./thunderbird: error while loading shared libraries: libstdc++.so.6: cannot open shared object file: N
+
+还是不喜欢说废话 首先ubuntu用户直接 sudo apt-get install sqliteman 然后关掉浏览器好好工作 这里说的是debian用户 debian不是一般的ken 转载注明出处 http://blog.csdn.net/isinstance/arti
+
+ubuntu下QT连接各种数据库报错解决（QSqlDatabase: * driver not loaded）
+
+
+
+1、QSqlDatabase: QMYSQL driver not loaded
+
+QSqlDatabase: available drivers: QSQLITE
+
+说明在QT连接mysql数据库时，mysql的数据库驱动没有加载上,实际上就是缺少libqt4-sql-mysql 这个驱动包  www.2cto.com
+
+解决办法：#sudo  apt-get install   libqt4-sql-mysql
+
+2、QSqlDatabase: QPSQL driver not loaded
+
+QSqlDatabase: available drivers: QSQLITE  QMYSQL
+
+说明在连接postgresql数据库时，QPSQL驱动没有加载，在你的LD_LIBRARY_PATH库路径中缺少libqt4-sql-psql驱动包  www.2cto.com
+
+解决办法：# sudo apt-get install  libqt4-sql-psql
+
+3、QSqlDatabase: QODBC driver not loaded
+
+QSqlDatabase: available drivers: QSQLITE  QMYSQL  QPSQL
+
+说明在连接odbc驱动的数据库时，缺少了libqt4-sql-odbc驱动包
+
+解决办法：# sudo apt-get install libqt4-sql-odbc
+
+4、QSqlDatabase: * driver not loaded
+
+QSqlDatabase: available drivers: QSQLITE  QMYSQL  QPSQL
+
+关于这一类的问题，有一个万能的命令，可以将这些包全部装上
+
+# sudo apt-get install libqt4*
+
+不过这样就会装上很多的用不到的包。

@@ -1,0 +1,43 @@
+
+1.是指数据本地化
+  setting.py
+  修改地区:LANGUAGE_CODE = 'zh-hans'  # 使用中文汉子
+  修改时间:TIME_ZONE = 'Asia/Shanghai'  # Django 设计的时候没有北京时间，所以我们用上海时间
+
+2.创建管理员账号:
+  进入虚拟空间:
+  python3 manage.py createsuperuser
+  username:admin
+  email:shdjxywd@sina.com
+  password:123456
+  后台管理地址:http://127.0.0.1:8000/admin/
+
+3.注册模型类
+  admin.py 文件中注册模型
+  导入模型
+   from django.contrib import admin
+   from booktest.models import BookInfo,HeroInfo
+  注册模型
+   # Register your models here.
+   admin.site.register(BookInfo);
+   admin.site.register(HeroInfo);
+
+   重写类方法__str__ 设置返回值
+   def __str__(self):
+        return self.btitle;
+
+4.自定义模型管理类
+  admin.py 文件中定义模型管理类
+  自定义的模型管理类,必须继承admin.ModelAdmin
+  class BookInfoAdmin(admin.ModelAdmin):
+    """自定义图书模型管理类"""
+    list_display = ['id','btitle','bpub_date'];
+
+
+   class HeroInfoAdmin(admin.ModelAdmin):
+    """自定义英雄模型管理类"""
+    list_display = ['id','hname','hgender','hcomment','hhook'];
+
+   # Register your models here.
+   admin.site.register(BookInfo,BookInfoAdmin);
+   admin.site.register(HeroInfo,HeroInfoAdmin);

@@ -1,0 +1,10 @@
+
+1.navicat for mysql linux下破解方法
+第一次执行start_navicat时，会在用户主目录下生成一个名为.navicat的隐藏文件夹。
+----此文件夹下有一个system.reg文件----把此文件删除后，下次启动navicat会重新
+生成此文件，30天试用期会按新的时间开始计算。----将就着用了
+
+2.sqliteman 安装失败,正确安装方法
+下载地址:http://sqliteman.yarpen.cz/
+安装方法:http://www.itkeyword.com/doc/903780498501252350/sourceforge-debian
+一些包必须按照才能打开:https://www.2cto.com/database/201303/194968.html

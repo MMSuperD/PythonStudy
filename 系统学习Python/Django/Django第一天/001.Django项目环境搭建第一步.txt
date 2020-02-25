@@ -1,0 +1,72 @@
+一.这个是虚拟环境搭建,和测试
+1.安装虚拟环境(如果下载慢的话,更换 下载系统维护源https://blog.csdn.net/shanpenghui/article/details/80433555 )
+sudo -H pip3 install virtualenv -i  https://mirrors.aliyun.com/pypi/simple/
+2.安装虚拟环境扩展包
+sudo -H pip3 install virtualenvwrapper -i  https://mirrors.aliyun.com/pypi/simple/
+3.编辑home 目录下面的.bashrc文件,添加下面两行代码
+export WORKON_HOME=$HOME/.virtualenvs;
+VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3;
+source /usr/local/bin/virtualenvwrapper.sh; //通过后面命令查看路径 which virtualenvwrapper.sh
+4.使用命令 source .bashrc 使其生效
+5.创建python 虚拟环境空间,创建好了自动进入该空间了
+mkvirtualenv -p python3 test3  // test3 表示虚拟环境空间名
+6.进入虚拟环境空间
+workon test3 // test3 表示虚拟环境空间名
+7.退出虚拟环境空间
+deactivate
+8.删除虚拟环境空间(必须退出虚拟环境空间)
+rmvirtualenv test3 // 表示删除名字为 test3 的虚拟空间名字
+
+二.虚拟环境中安装自己想要的第三方包
+1.安装包
+pip3 install 包名[==版本]  // [表示可选]
+2.举例
+pip3 install django==1.8.2
+3.查看虚拟空间中已经安装的包
+pip3 list // 查看所有的包
+pip3 freeze // 查看包,不包含默认自己预装的包
+
+4.高级安装包,指定安装源头(指定规定源头一定要记得用https)
+pip3 install django -i  https://mirrors.aliyun.com/pypi/simple/
+
+三.创建一个新的项目
+1.进入虚拟环境空间
+workon 虚拟空间名字
+2.在自己想要建项目的地方建立自己的项目文件夹
+例如:mkdir /Desktop/project1
+3.安装django 第三方包
+pip3 install django -i  https://mirrors.aliyun.com/pypi/simple/
+4.创建项目
+django-admin startproject 项目名称
+django-admin startproject project1
+得到的文件:
+manage.py:项目的管理文件
+__init__.py:说明project1是一个python包
+setting.py:项目的配置文件
+url.py:进行url路由的配置文件
+wsgi.py:服务器和Django 的交互文件
+5.在项目中创建一个应用,实现某个功能
+python3 manage.py startapp 应用名字
+python3 manage.py startapp booktest
+得到一个booktest目录,里面包含了:
+admin.py:网站后台管理相关的网站
+apps.py:
+__init__.py:表明是一个python 模块
+migrations > __init__.py:
+models.py:写和数据库相关的功能
+tests.py:写一些测试函数
+views.py:请求接收,进行处理,与M 和 T 交互 返回应答,定义处理函数,视图函数
+6.配置文件和应用相关联,修改setting.py 把新建的应用添加到配置文件中去
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'booktest',# 这个是新添加的
+]
+7.在虚拟空间中启动Django项目
+python3 manage.py runserver
+
+
