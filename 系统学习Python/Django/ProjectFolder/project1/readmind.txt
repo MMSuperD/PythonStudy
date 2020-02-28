@@ -1,0 +1,25 @@
+
+# 命令 echo | tree readmind.txt
+
+├── booktest
+│   ├── admin.py  #网站后台管理相关的网站
+│   ├── apps.py
+│   ├── __init__.py #表明是一个python 模块
+│   ├── migrations
+│   │   └── __init__.py
+│   ├── models.py # 写和数据库相关的功能
+│   ├── tests. #写一些测试函数
+│   └── views.py #请求接收,进行处理,与M 和 T 交互 返回应答,定义处理函数,视图函数
+├── manage.py
+├── project1   #项目名字
+│   ├── asgi.py
+│   ├── __init__.py #说明project1是一个python包
+│   ├── __pycache__
+│   │   ├── __init__.cpython-36.pyc
+│   │   └── settings.cpython-36.pyc
+│   ├── settings.py #项目的配置文件
+│   ├── urls.py #进行url路由的配置文件
+│   └── wsgi.py #服务器和Django 的交互文件
+└── readmind.txt
+
+4 directories, 16 files

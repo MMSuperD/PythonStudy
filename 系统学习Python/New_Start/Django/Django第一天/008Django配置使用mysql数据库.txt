@@ -1,0 +1,41 @@
+1.安装mysql client server
+
+2.解决mysql 问题 https://www.cnblogs.com/cpl9412290130/p/9583868.html
+
+3.创建一个新的Django项目
+
+4.配置项目
+    文件:setting.py
+    1.首先吧新的应用添加到setting.py中
+    2.把sqlite3 数据库更换为mysql 数据库
+    3.配置mysql数据库
+    4.通过mysql 手动创建一个数据库
+    5.安装pymysql 第三方包
+        pip3 install pymysql
+    5.run 这个Django mysql 项目
+
+5.安装pymysql 第三方包(在虚拟环境中)
+    pip3 install pymysql
+
+6.在项目中文件中配置pymysql
+    项目文件__init__.py(不是应用文件)
+    添加如下代码:
+    import pymysql
+
+    pymysql.version_info = (1, 3, 13, "final", 0)
+    pymysql.install_as_MySQLdb();
+
+5.项目中配置mysql
+    文件:setting.py
+    DATABASES = {
+    'default': {
+        #'ENGINE': 'django.db.backends.sqlite3',
+        #'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME':'books',  #  使用数据库的名字，数据库必须手动创建
+        'USER':'root',  #   链接mysql 的用户名
+        'PASSWORD':'123456',  # 链接mysql 密码
+        'HOST':'localhost',  #  指定mysql数据的所在的IP地址
+        'PORT':3306,  #  链接mysql数据库的端口
+    }
+}

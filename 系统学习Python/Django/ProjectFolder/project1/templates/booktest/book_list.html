@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图书列表</title>
+</head>
+<body>
+<h1>图书列表</h1>
+<ul>
+    {% for book in books %}
+        <li><a href="/books/{{ book.id}}/">{{ book.btitle }}</a></li>
+    {% empty %}
+        <li>图书馆暂时没有书</li>
+    {% endfor %}
+
+</ul>
+</body>
+</html>

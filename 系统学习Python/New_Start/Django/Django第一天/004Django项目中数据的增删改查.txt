@@ -1,0 +1,39 @@
+
+首先导入项目中的models文件中的模型对象
+
+1.添加数据
+  b = BookInfo()
+  b.btitle = '天龙八部'
+  b.bpub_date = date(1991,1,1)
+  b.save()  #这个是添加数据
+
+2.查询数据
+   # 这个是根据ID 查询值 得到的是一个 BookInfon 对象
+  b = BookInfo.objects.get(id=1) # 模型名字.objects.get(字段名=value)
+
+  # 查询所有的数据
+  类名.objects.all()
+  BookInfo.objects.all();
+
+3.修改数据
+    b = BookInfo.objects.get(id=1)
+    b.btitle = '降龙十八掌'
+    b.save() # 这个就是修改数据,也就更新数据
+
+4.删除数据
+  b = BookInfo.objects.get(btitle='降龙十八掌')
+  b.delete()  # 删除数据
+
+
+# 在Django 中数据库 ID 的修改和保存,就相当于重新创建的一条数据
+
+高级查询数据,对于关联表查询
+A:表示对象1
+B:表示对象2,但是 设置了外键 关联A对象
+
+a = A();  这是一个A 对象
+如果要查询 和 a 对象相关联的B对象
+a.B对象类名的小写_set.all();
+a.b_set.all()
+这个是一个实际的例子
+BookInfo.objects.get(btitle="西游记").heroinfo_set.all()

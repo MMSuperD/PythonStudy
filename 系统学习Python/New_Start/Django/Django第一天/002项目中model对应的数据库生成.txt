@@ -1,0 +1,33 @@
+
+1.在models.py 文件中创建一个类 继承制 models.Model 这个是Django自带的类
+首先导入:from django.db import models
+接着:创建类
+# 图书类
+class BookInfo(models.Model):
+    ''''图书模型类'''
+    # 图书名称 CharField 说明是一个字符串 max_length 表示最大的长度为20
+    btitle = models.CharField(max_length=20);
+    # 出版日期
+    bpub_date = models.DateField();
+
+ 2.根据创建的类生成对应的迁移文件
+ 在虚拟空间中使用如下命令生成对应的迁移文件
+ python3 manage.py makemigrations
+
+ 生成的迁移文件 会在 migrations 文件下面0001_initial.py文件
+
+ 3.执行迁移文件生成表
+ python3 manage.py migrate
+ 会生成一个数据库文件
+
+ 4.安装sqlite3 数据库
+
+ 5.安装sqliteman 打开 这个数据库文件
+ sudo apt-get install sqliteman
+
+ 6.通过sqliteman 命令打开数据库文件
+
+ 7.虚拟环境,项目终端,可以使用这个项目
+ python3 manage.py shell
+
+

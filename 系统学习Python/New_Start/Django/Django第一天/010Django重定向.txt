@@ -1,0 +1,22 @@
+
+# 重定向: 就是当我们在当前界面点击某一个按钮的时候操作了数据,需要刷新界面的时候,我们需要使用重定向
+使用重定向:
+1.导入:
+from django.http import HttpResponse,HttpResponseRedirect
+
+2.在相应的视图函数中使用函数:
+    # 反应完成，让浏览器 再吃访问同一页面 这个也叫作重定向
+    return HttpResponseRedirect('/index');
+    或者是
+    return redirect('/index');
+
+    列如:
+    def delete_book(reuestet, bid):
+    """删除图书"""
+    print('I love you')
+    book = BookInfo.objects.get(id=bid);
+    print(str(bid));
+    book.delete();
+
+    return HttpResponseRedirect('/index');
+

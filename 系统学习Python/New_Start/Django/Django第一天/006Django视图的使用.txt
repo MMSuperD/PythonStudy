@@ -1,0 +1,32 @@
+
+1.在否一个应用中创建独立的urls.py
+
+2.把刚刚创建的urls.py 配置到主项目中的urls.py中去
+    url(r"^",include("这里是某一个应用urls的路径"));
+    例如:url(r"^",include("booktest.urls"))
+3.配置具体应用中的urls.py
+    url(r"",视图路径);
+    例如:url(r"^index$",views.index);
+    views.index :表示是视图views.py 中的 函数 index
+
+4.视图views.py中定义对应的函数
+    首先导入:from django.http import HttpResponse
+    定义函数:
+    def index(request):
+        # 进行处理M 和 T 的交互
+        print("hello")
+        return HttpResponse("老铁，没有毛病");
+
+
+5.注意点,如果路由中如果有组,我们在视图函数中一定要设置相应的参数用来接收,否者系统
+  将会报错,找不到相应的函数
+  列如: url("^books(/?)$",views.show_books),#设置组的时候，一定要设置响应函数的参数
+        #--------------------这个是图书列表的案例
+        def show_books(request,*callback_args):
+
+            print("show_boos",callback_args);
+            # 1.获取数据
+            books = BookInfo.objects.all();
+
+            # 返回标准的html5 模板
+            return render(request,"booktest/book_list.html",{"books":books});
