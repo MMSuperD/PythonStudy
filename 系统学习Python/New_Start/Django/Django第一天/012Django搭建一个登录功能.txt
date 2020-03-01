@@ -54,6 +54,18 @@
 
         4.2.3 返回json 数据用 JsonResponse
             JsonResponse({'res':1});
+  4.3 为了保证我们的用户名固定,和应用没有关系我们需要在模型中国添加 Meta
+       class UserInfo(models.Model):
+            """用户信息表模型"""
+            username = models.CharField(max_length=20);
+            password = models.CharField(max_length=20);
+            gender   = models.BooleanField(default=False);
+
+            def __str__(self):
+                return self.username;
+
+            class Meta:
+                db_table = "userinfo";  # 这个是指定用户信息表的名字
 
 
 
@@ -87,3 +99,21 @@
         在不重新加载页面的前提下 ,给页面做局部刷新
 
    5.4 前端尽量少用表单提交 表单提交问题太多了,处理起来比较麻烦
+
+6.个url 中添加组名 这样做之后,在视图对应方法中就必须 参数名字和组名一样:
+     urls.py中:url('^mmd/(?P<num>\d+)$');
+     views.py中: def mmd(request,num):
+                        print('hello');
+
+7.配置404 找不到资源界面,服务器500 界面
+    7.1 配置 404 界面
+        在templates 文件夹下创建 404.html 自定义 404 界面
+
+    7.2 配置 500 界面
+        在templates 文件下创建 500.html 自定义 500 界面
+
+8. 开发完成需要关闭调试模式 和配置 允许范文的域名ip
+    DEBUG = False  # 这个是调试模式关闭
+    ALLOWED_HOSTS = ['*'] # 这个是 允许范文的ip  * 代表所有的,不安全
+
+
