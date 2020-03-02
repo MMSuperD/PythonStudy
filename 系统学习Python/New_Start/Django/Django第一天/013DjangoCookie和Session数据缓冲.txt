@@ -1,0 +1,65 @@
+
+1.Cookie
+    1.1是由服务器生成,存储在浏览器端的一小段文本
+    1.2 Cookie特点
+        1.2.1 以键值对的方式进行存储
+        1.2.2 通过浏览器访问网站的时候,会将浏览器存储跟该网站相关的cookie信息
+              发送送给该网站的服务器 request.COOKIES
+        1.2.3 Cookie 是基于网站安全的
+        1.2.4 Cookie 是有过期时间的,如果不设置默认关闭浏览器后,cookie文本就清除了,不存在了,会过期
+
+    1.3 Cookie应用案例
+        1.3.1 设置Cookie
+              def set_cookie(request):
+                    """设置cookie信息"""
+                    response = HttpResponse("设置cookie信息");
+                    # cookie 的键为：num 值为1
+                    response.set_cookie('num',1);
+                    return response;
+
+        1.3.2 获取Cookie
+               def get_cookie(request):
+                    """获取cookie值"""
+                    # 取出cookie信息
+                    cookie_value = request.COOKIES["num"];
+                    request.COOKIES.get("username"); # 取值最好用这个,这个如果没有值,不会报异常,容易处理
+                    return HttpResponse(cookie_value);
+
+
+2.Session
+    2.1 存储在服务器中 也需要借助Cookie
+    2.2 Session 存储特点:
+        2.2.1 Session 是以键值对的形式存储的
+        2.2.2 Session依赖于Cookie 惟一的sessionid 存储在Cookie 中
+        2.2.3 Session也有过期时间,如果不指定,过期时间默认两个周
+
+    2.3 Session应用案例
+        2.3.1 设置Session
+              def set_session(request):
+                    """设置session 的值"""
+                    request.session['username'] = 'fan';
+                    request.session['age'] = 18;
+                    return HttpResponse("设置session信息");
+
+        2.3.2 获取Session
+              def get_session(request):
+                    """得到session信息"""
+                    username = request.session["username"];
+                    age = request.session["age"];
+                    return HttpResponse("得到session的值" + username + str(age));
+        2.3.3 清除Session
+              # 清除session 中部分键值
+              del request.session["age"];
+              # 清除所有的session 在存储中删除部分
+              request.session.clear()
+              # 清除所有的session 在存储中也全部删除
+              request.session.flush()
+        2.3.4 设置会话超时时间,如果没有指定过期时间,默认两个周后过期
+              request.session.set_expiry(value);
+              value如果是一个整数的话,表示 回话sessionid 会在 value 秒后过期
+              value如果是0 的话,表示回话sessionid 会在浏览器关闭后过期
+              value如果是None 的话,表示回话sessionid 会在两周后过期
+
+3.总结Cookie 和 Session应用场景:
+   cookie: 一般用来记住用户名,安全性不高
+   session: 涉及到用户安全性比较高的数据,银行卡账户,密码
