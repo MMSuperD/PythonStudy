@@ -1,0 +1,40 @@
+1.反向解析用途:
+    1.1 模板的超链接
+        1.首先要配置项目urls.py
+            url('^',include(('loginfunction.urls','loginfunction'),namespace='loginfunction'))
+            第一个和第二个 loginfunction 是应用的名字
+            第三个 namespace 最好配置写 loginfunction(和项目的名字一样)
+
+        2.比如我们要重 url_reverse.html 界面跳转到 index.html 页面
+           第一步:
+                我们需要配置: url 方法的 name 属性用来动态的匹配url
+                    url('^index3$',views.index,name='index')
+           第二步:
+                需要在连接中写模板url 比如我们就需要在 url_reverse.html 中编写
+                <a href="{% url 'loginfunction:index' %}">首页index</a>
+
+                loginfunction:应用空间(namespace)名字
+                index: 就是上一步 url 中配置的 name 属性 'index'
+
+
+    1.2 视图的反向解析
+        第一步:from django.urls import reverse  或者是
+              from django.shortcuts import redirect
+        第二步:配置url 方法的 name 属性用来动态的匹配url
+                url('^show_args/(\d+)/(\d+)$',views.show_args,name='show_args'),  # 测试带参数的反向解析
+
+                url('^show_kwargs/(?P<c>\d+)/(?P<d>\d+)$', views.show_kwargs,name='show_kwargs'),  # 测试带参数的反向解析
+        第三步:动态解析得到url
+                # 重定向到 redirect('/index');
+                url = reverse('loginfunction:index');
+
+                # 重定向到/show_args/1/2
+                url = reverse('loginfunction:show_args',args=(1,2));
+
+                # 重定向到/show_kwargs/3/4
+                url = reverse('loginfunction:show_kwargs',kwargs={'c':3,'d':4});
+
+        第四步:重定向url
+              return redirect(url);
+
+

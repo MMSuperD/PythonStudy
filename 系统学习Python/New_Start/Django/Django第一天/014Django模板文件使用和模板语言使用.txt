@@ -1,0 +1,173 @@
+
+1.模板文件加载顺序
+    1.1 首先在配置模板目录下面去寻找模板文件
+    1.2 去 INSTALLED_APPS 下每一个应用去找模板文件,前提是应用中必须包含 templates 文件夹
+
+2.模板语言
+    2.1 模板语言简称DTL (Django Template Language)
+
+3.模板变量
+    3.1 定义:模板变量名,由数字,下划线,字母和点组成,不能用下划线开头
+    3.2 使用:{{模板变量}}
+    3.3 模板变量解析顺序
+        列如:{{book.btitle}}
+        3.3.1 首先吧book 当做一个字典 btitle 当做键名 进行取值 book['btitle']
+        3.3.2 把book 当做对象,btitle 当做属性,用book.btitle 进行取值
+        3.3.3 把book 当做对象 btitle 当做对象的方法 用 book.btitle 进行取值
+        例如:{{book.0}}
+        3.3.4 把book 当成一个字典 0 当做键名,用book['0'] 进行取值
+        3.3.5 把book 当做一个列表 把0 当做下标 进行取值 book[0]
+
+        如果解析失败 :产生内容的时候用空字符串填充模板变量
+        使用模板变量的时候,模板变量可能是一个字典,可能是一个列表,可能是一个对象
+
+4.常用的模板标签:
+    4.1 for循环
+        {% for x in 列表%}
+        {% empty %} # 列表为空的时候执行
+        {% endfor%}
+
+        可以通过 {{ forloop.counter }} 得到for循环遍历到第几次
+    4.2 if语句
+        {{ if 条件}}
+        {{ elif 条件}}
+        {{ else }}
+        {{ endif}}
+    4.3 关系比较运算符
+        >,< ,>=, <=, ==, !=,
+        注意点,在进行比较运行的时候,运算符两边必须要有 空格
+
+    4.4 逻辑运算
+        not and or
+
+    4.5 过滤器
+        定义:过滤器用于对模板变量进行操作
+        data:改变日期的显示格式
+        length:求长度.字符串,列表,元祖,字典长度
+        default:设置模板变量的默认值
+
+        格式:模板变量 | 过滤器:参数
+        如果只要一个参数,本身当做参数,最多只能有两个参数
+
+    4.6 自定义过滤器
+        4.6.1 首先在应用目录下面建立 templatetags python包(文件名一定是 templatetags 一定是python 包)
+        4.6.2 接着在 templatetags 包中创建 标签文件 extra_tags.py
+        4.6.3 在extra_tags.py文件中导入
+               from django import template
+               register = template.Library()
+               # 自定义过滤器 至少一个参数，最多两个参数
+               @register.filter
+               def mod(num,var=0):
+                  """判断num 是否为偶数"""
+                   if var == 0:
+                        return num%2 == 0;
+                   else:
+                       # 判断一个数是否是另一个数的倍数
+                       if num == 0 or var == 0:
+                           return False;
+                       return num % var == 0;
+
+        4.6.4 模板文件中使用自定义的过滤器:
+              模板文件第一行插入:
+              {% load extra_tags %}  {# 这个是加载自定义的过滤器 #}
+              使用过滤器:
+              <p>自定义过滤器的使用</p>
+              {# 只有一个参数的自定义过滤器 #}
+              {% for num in num_list %}
+                  {% if num|mod %}
+                      <li style="background-color: lightgreen">{{ num }}是偶数</li>
+                  {% else %}
+                      <li>{{ num }}不是偶数</li>
+                  {% endif %}
+              {% endfor %}
+
+              {# 只有两个参数的自定义过滤器 #}
+              {% for num in num_list %}
+                  {% if num|mod:3 %}
+                     <li style="background-color: lightgreen">{{ num }}是3倍数</li>
+                  {% else %}
+                      <li>{{ num }}不是3的倍数</li>
+                  {% endif %}
+              {% endfor %}
+
+        4.6.5 模板文件的注释:
+              单行注释:{# 注释语言 #}
+              多行注释:
+              {% comment %}
+                注释内容
+              {% endcomment %}
+
+5.模板继承
+    5.1 模板继承目的:为了html 重用
+    5.2 模板继承概念:相同的地方用base.html 文件创建 ,不同需要自定义的地方重写block 块来实现,前提是在base.html
+                    中有预留的block 代码块
+    5.3 实例:
+        5.3.1 创建一个base.html,不同地方用block 来预留
+            例如:
+            <title>
+                {% block title %}
+                  我是基类模板的title
+                {% endblock %}
+             </title>
+
+            <body>
+               {% block header %}
+                <div class="header">我是头部</div>
+               {% endblock %}
+
+               {% block content %}
+                <div class="center">
+                    {% block content_detail %}
+                        <h1>内容</h1>
+                    {% endblock %}
+                </div>
+               {% endblock %}
+
+               {% block bottom %}
+                <div class="bottom">我是底部</div>
+               {% endblock %}
+            </body>
+
+        5.3.2 创建child.html(继承于base.html 的模板)
+            1.创建 child.html
+            2.继承base.html
+                {% extends 'loginfunction/base.html' %}
+            3.重写不一样的地方,也就是预留的block(需要修改的不同的地方的block)
+               例如:
+                {% block title %}
+                    我是孩子的标题
+                {% endblock %}
+
+                {% block content %}
+                    {{ block.super }}{# 使用父文件的模块 #}
+                {% endblock %}
+
+                {% block content_detail %}
+                    <h1>child内容</h1>
+                {% endblock %}
+
+
+
+
+
+6.html 转义
+    6.1 特殊的符号:
+        1.小于号(<): &lt;
+        2.大于号(>): &gt;
+        3.单引号('): &#39;
+        4.双引号("): &quot;
+        5.&符号(&):  &amp;
+
+    6.2 关闭模板上下文转义:
+        1.{{模板变量|safe}}
+        2.使用模板硬编码:
+           {% autoescape off %}
+                {{ 模板变量 }} {# 模板语言代码  #}
+           {% endautoescape %}
+        3.模板隐编码中的字符串,默认是不会经过转义的
+            {{test|default:'<h1>hello</h1>'}}  {# 这就是硬编码 默认是不会转义的#}
+            如果需要手动转义:
+            {{test|default:'&lt;h1&gt;hello&lt:/h1&gt;'}}
+
+              
+

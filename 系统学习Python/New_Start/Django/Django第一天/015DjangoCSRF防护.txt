@@ -1,0 +1,13 @@
+1.Django 防止 csrf 的方式
+    1.1 默认打开csrf中间建
+    1.2 表单post 提交数据时加上 {% csrf_token %}标签
+
+2.Django csrf 防护原理
+    2.1 渲染模板文件的时候,在页面生成了一个叫做csrfmiddlewaretoken的隐藏域
+    2.2 服务器交给浏览器保存一个名字为 csrftoken 的cookie 信息
+    2.3 提交表单的时候,两个值都会发送给服务器,服务器进行对比,如果一样则csrf验证通过,否则失败
+
+3. Django csrf 防护案例:
+    1. 打开设置中的 'django.middleware.csrf.CsrfViewMiddleware',
+    2. 在所有的post 表单提交当中,我们都需要添加一个模板 标签
+        {% csrf_token %}
