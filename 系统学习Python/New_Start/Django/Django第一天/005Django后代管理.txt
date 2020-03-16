@@ -32,6 +32,17 @@
   class BookInfoAdmin(admin.ModelAdmin):
     """自定义图书模型管理类"""
     list_display = ['id','btitle','bpub_date'];
+    list_per_page = 10; # 这个是每页显示多少条数据
+    actions_on_bottom = True;
+    actions_on_top = False;
+
+    list_filter = ['btitle'];  # 列表右侧过滤栏
+    search_fields = ['btitle'];  # 列表上方搜索栏
+
+    fieldsets = (
+        ('基本信息',{'fields':['btitle']}),
+        ('时间', {'fields':['bpub_date']}),
+    );
 
 
    class HeroInfoAdmin(admin.ModelAdmin):
@@ -41,3 +52,10 @@
    # Register your models here.
    admin.site.register(BookInfo,BookInfoAdmin);
    admin.site.register(HeroInfo,HeroInfoAdmin);
+
+5.重写模板
+    1.在templates 目录下面创建admin 目录,结构如下
+    2.打开当前的虚拟环境Django 目录,向下找到admin 的模板
+        ~/.virtualenvs/virtual_project3/lib/python3.6/site-packages/django/contrib/admin/templates/admin$
+    3.把需要更改的模板文件拷贝到第一步创建的目录中去,对需要修改的地方做自己的修改
+

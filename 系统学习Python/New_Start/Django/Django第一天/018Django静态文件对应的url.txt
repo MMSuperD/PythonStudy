@@ -1,0 +1,49 @@
+
+1.在项目目录中setting.py 中设置访问静态文件对应的url地址
+    STATRC_URL = 'static'
+    STATRC_URL = 'abc'
+
+2.设置静态文件存放的物理目录,一般我们在整个项目目录下创建一个文件夹,之后再每一个应用下对应的应用目录(static 目录和应用目录同级别)
+    STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')];
+
+3.模板文件中使用静态文件
+   1.中设置的STATRC_URL 对应的链接
+     <img src='static/images/abc.png'></img>
+     <img src='abc/images/abc.png'></img>
+
+   2.动态的获取 STATRC_URL,并拼接静态文件路径
+     # 这个是相对路径
+     <img src='{% static 'images/abc.png' %}'><img>
+     # 这个是绝对路径
+     <img src="/static/images/beauty.png" alt="">
+
+   3.在模板文件中加载静态文件
+     {% load static %}
+
+4.实例
+    {% load static %}
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>静态文件图片的使用</title>
+
+        <style>
+            img{
+                display: block;
+                width: 200px;
+                height: 100px;
+            }
+        </style>
+    </head>
+    <body>
+    {# 这个是绝对路径 #}
+    <img src="/static/images/beauty.png" alt="">
+
+    {# 这个是动态路径 #}
+    <img src="{% static 'images/beauty.png' %}" alt="">
+
+    <img src="/static/images/beauty.png" alt="">
+
+    </body>
+    </html>
