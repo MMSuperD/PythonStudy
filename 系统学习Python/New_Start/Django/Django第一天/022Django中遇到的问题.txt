@@ -1,0 +1,16 @@
+1.插入中文数据遇到了问题:
+  mysql 插入中文 ERROR 1366 (HY000): Incorrect string value: '\xE7\x8E\x9E\x97' for column
+
+  解决方式:
+    1.即我们只应该修改/etc/mysql/mysql.conf.d/mysqld.cnf配置文件
+        character-set-server = utf8
+    2.重启服务 service mysql restart
+
+    3. 查询字符集是不是都是utf8(在mysql 下执行下面命令查看)
+     mysql> show variables like 'character_set%';
+
+  如果还是不能解决问题:
+    1.即我们只应该修改/etc/mysql/mysql.conf.d/mysqld.cnf配置文件
+        character-set-server = utf8
+    2.删掉数据库,重新建立数据库,删除迁移文件,重新建表
+

@@ -1,0 +1,74 @@
+1.获取数据对象
+2.设置每页展示多少条数据,返回paginator对象
+3.得到page 对象
+4.案例:
+    视图函数
+    from django.core.paginator import Paginator
+    def paging_use(reqeust,index):
+        """分页"""
+        # １．get data
+        data = UserInfo.objects.all();
+
+        # 2. every paging show ten
+        paginator = Paginator(data,10);
+
+        # 3.get paging data
+        if not index:
+            index = 1;
+        pag = paginator.page(int(index));
+
+        return render(reqeust,'loginfunction/paging_use.html',{"pag":pag})
+
+    模板文件:
+    <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <title>paging use</title>
+        </head>
+        <body>
+            <ul>
+                {% for foo in pag %}
+                    <li>{{ foo }}</li>
+                {% empty %}
+                    <li>empty data</li>
+                {% endfor %}
+            </ul>
+
+            {% if pag.has_previous %}
+                <a href="/paging_use/{{ pag.previous_page_number}}">上一页</a>
+            {% endif %}
+
+            <div>
+                {% for index in pag.paginator.page_range %}
+
+                    {% if index == pag.number %}
+                        <em style="background-color: white">{{ index }}</em>
+                    {% else %}
+                        <a href="/paging_use/{{ index }}" style="background-color: red">{{ index }}</a>
+                    {% endif %}
+                {% endfor %}
+
+            </div>
+
+            {% if pag.has_next %}
+                <a href="/paging_use/{{ pag.next_page_number }}">下一页</a>
+            {% endif %}
+        </body>
+    </html>
+
+5.分页常用函数:
+    1.Page类对象属性:
+    number:返回当前页码
+    object_list:返回包含当前页的数据查询集
+    paginator:返回对应的Paginator对象
+    2.Page类对象方法:
+    has_previous:判断是否存在上一页
+    has_next: 判断是否存在下一页
+    previous_page_number:上一页的页码
+    next_page_number:下一页的页码
+    3.Paginator类对象的属性:
+    num_pages:返回分页之后的总页数
+    page_range:返回分页后的列表
+    4.Paginator类对象的方法:
+    page(self,number): 返回第number页的page类对象
