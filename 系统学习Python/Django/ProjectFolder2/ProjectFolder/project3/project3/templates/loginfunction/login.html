@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录界面</title>
+    <script src="/static/js/jquery-3.4.1.js" charset="utf-8" ></script>
+
+    <script type="text/javascript">
+        $(function () {
+            $('#login_btn_post').click(function () {
+
+                username = $('#username').val();
+                password = $('#password').val();
+                checkbox_select = $('#checkbox_select').val();
+                $.ajax({
+                    'url':'/ajax_login',
+                    'dataType':'json',
+                    'type':'post',
+                    'async':false, //这个是设置同步ajax 请求
+                    'data':{'username':username,'password':password,'checkbox_select':checkbox_select},
+                    'success':function (data) {
+                        console.log(data)
+                        if (data.res == 1){
+                            location.href = '/index';
+                        } else if (data.res == 2){
+                            alert('用户名不存在');
+                        } else {
+                            $('#passwork_error').show();
+                        }
+                    },
+                    'fail':function (error) {
+                        console.log(error)
+                    }
+                });
+            });
+
+            $('#login_btn_get').click(function () {
+
+                username = $('#username_get').val();
+                password = $('#password_get').val();
+                $.ajax({
+                    'url':'/ajax_login',
+                    'dataType':'json',
+                    'type':'get',
+                    'async':false, //这个是设置同步ajax 请求
+                    'data':{'username':username,'password':password},
+                    'success':function (data) {
+                        console.log(data)
+                        if (data.res == 1){
+                            location.href = '/index';
+                        } else if (data.res == 2){
+                            alert('用户名不存在');
+                        } else {
+                            $('#passwork_error_get').show();
+                        }
+                    },
+                    'fail':function (error) {
+                        console.log(error)
+                    }
+                });
+            });
+        });
+    </script>
+
+    <style>
+        div{
+            width: 300px;
+            margin: 50px auto 0px;
+        }
+        input{
+            display: block;
+            width: 300px;
+            margin: 0px;
+            padding: 0px;
+        }
+
+        #checkbox_select{
+            text-align: left;
+            width: 40px;
+            height: 20px;
+            display: inline-block;
+        }
+
+        em{
+            height: 20px;
+        }
+
+        #passwork_error,#passwork_error_get{
+            display: none;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+<div>
+    <p>用户名：</p>
+    <input type="text" id="username" value="{{ username }}">
+    <p>密码：</p>
+    <input type="text" id="password">
+    <p id="passwork_error">密码错误，请重新输入！</p>
+    <br>
+    <br>
+    <input type="checkbox" id="checkbox_select"><em>记住账号</em>
+    <input type="button" value="POST登录" id="login_btn_post">
+</div>
+
+<div>
+    <form action="/login">
+        <p>用户名：</p>
+        <input type="text" id="username_get" name="username">
+        <p>密码：</p>
+        <input type="text" id="password_get" name="password">
+        <p id="passwork_error_get">密码错误，请重新输入！</p>
+        <br>
+        <br>
+        <input type="button" value="GET登录(如果用表单提交，需要另外写服务器方法)" id="login_btn_get">
+    </form>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>使用safe关闭转义</title>
+</head>
+<body>
+html转义：<br>
+{{ content }}<br>
+使用过滤器safe 来转义 <br>
+{{ content|safe }}
+
+使用autoexcape关闭转义 <br>
+{% autoescape on %}
+{{ content }}
+{% endautoescape %}
+<br>
+使用autoexcape打开转义 <br>
+{% autoescape off %}
+{{ content }}
+{% endautoescape %}
+
+如果是转义字符，默认转义 <br>
+
+{% autoescape off %}
+{{ content1 }} <br>
+    {{ content }}<br>
+{% endautoescape %}
+
+<br>
+模板硬编码中，字符串默认不会经过转义：<br>
+{{ test|default:'<h1> I love you too</h1>' }} <br>
+
+手动进行转义: <br>
+{{ test|default:'&lt;h1&gt; I love you too&lt;/h1&gt;' }} <br>
+
+
+</body>
+</html>

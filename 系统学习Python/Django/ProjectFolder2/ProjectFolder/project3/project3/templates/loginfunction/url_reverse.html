@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>url 反向解析</title>
+</head>
+<body>
+
+<br>
+url反向解析 返回 name=index 的链接url <br>
+<a href="{% url 'loginfunction:index' %}">首页index</a>
+<br>
+url反向解析 返回 name=url_reverse_args 带参数 的链接url <br>
+<a href="{% url 'loginfunction:url_reverse_args' 1 2  %}">url_reverse_args/1/2</a> <br>
+
+url反向解析 返回 name=url_reverse_argsname 带参数 的链接url <br>
+<a href="{% url 'loginfunction:url_reverse_argsname' a=1 b=2  %}">url_reverse_argsname/1/2</a> <br>
+
+</body>
+</html>

@@ -1,0 +1,15 @@
+{% extends 'loginfunction/base.html' %}
+
+{% block title %}
+我是孩子的标题
+{% endblock %}
+
+{% comment %}
+{% block content %}
+    {{ block.super }}
+{% endblock %}
+{% endcomment %}
+
+ {% block content_detail %}
+        <h1>child内容</h1>
+ {% endblock %}

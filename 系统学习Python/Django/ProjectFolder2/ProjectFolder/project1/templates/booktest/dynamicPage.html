@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>包含动态数据的界面</title>
+
+    <style>
+        ul{
+            width: 400px;
+            position: relative;
+            left: 50%;
+            margin-left: -200px;
+        }
+        ul li{
+            width: 400px;
+            height: 40px;
+            border-bottom: 1px solid red;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+<h1>这是一个模板文件，文件中包含变量</h1>
+<p>{{ content }}</p>
+<p>列表中的数据:{{ list }}</p>
+<p style="text-align: center">for循环的使用</p>
+<ul>
+    {% for foo in list %}
+        <li>数据{{ foo }}</li>
+    {% endfor %}
+
+</ul>
+
+</body>
+</html>

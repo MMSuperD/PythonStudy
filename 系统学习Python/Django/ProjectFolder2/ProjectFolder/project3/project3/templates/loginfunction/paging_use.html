@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>paging use</title>
+</head>
+<body>
+
+<ul>
+    {% for foo in pag %}
+        <li>{{ foo }}</li>
+    {% empty %}
+        <li>empty data</li>
+    {% endfor %}
+</ul>
+
+{% if pag.has_previous %}
+    <a href="/paging_use/{{ pag.previous_page_number}}">上一页</a>
+{% endif %}
+
+<div>
+    {% for index in pag.paginator.page_range %}
+
+        {% if index == pag.number %}
+            <em style="background-color: white">{{ index }}</em>
+        {% else %}
+            <a href="/paging_use/{{ index }}" style="background-color: red">{{ index }}</a>
+        {% endif %}
+    {% endfor %}
+
+</div>
+
+{% if pag.has_next %}
+    <a href="/paging_use/{{ pag.next_page_number }}">下一页</a>
+{% endif %}
+
+</body>
+</html>

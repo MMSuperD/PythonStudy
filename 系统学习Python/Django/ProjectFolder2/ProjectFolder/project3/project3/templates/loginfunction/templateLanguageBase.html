@@ -1,0 +1,68 @@
+
+{% load extra_tags %}  {# 这个是加载自定义的过滤器 #}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>模板语言基础知识</title>
+</head>
+<body>
+
+<p>for 循环的使用 </p>
+{% for foo in list_content %}
+    {% if foo == 'fan' %}
+        <li style="background-color: red">{{ forloop.counter }}:{{ foo }}</li>
+    {% else %}
+        <li>{{ forloop.counter }}:{{ foo }}</li>
+    {% endif %}
+{% endfor %}
+
+<p>if 语句使用</p>
+
+{% if users.0.id == 1 %}
+    <li>我是{{ users.0.id }}号：{{ users.0.username }}</li>
+{% else %}
+{% endif %}
+
+<p>关系运算符的使用</p>
+{% if users.0.id > 1 %}
+    <li>我是{{ users.0.id }}号：{{ users.0.username }}</li>
+{% else %}
+    <li style="background-color: red">我是{{ users.0.id }}号：{{ users.0.username }}</li>
+{% endif %}
+
+<p>逻辑运算的运用 not and or</p>
+
+{% if  not 1 %}
+    <li>我是{{ users.0.id }}号：{{ users.0.username }}</li>
+{% else %}
+    <li style="background-color: red">我是{{ users.0.id }}号：{{ users.0.username }}</li>
+{% endif %}
+
+
+<p>过滤器defalut的使用</p>
+
+<p style="background-color: bisque">{{ conent|default:'后台没有传值过来' }}</p>
+
+<p>自定义过滤器的使用</p>
+{# 只有一个参数的自定义过滤器 #}
+{% for num in num_list %}
+    {% if num|mod %}
+        <li style="background-color: lightgreen">{{ num }}是偶数</li>
+    {% else %}
+        <li>{{ num }}不是偶数</li>
+    {% endif %}
+{% endfor %}
+
+{# 只有两个参数的自定义过滤器 #}
+{% for num in num_list %}
+    {% if num|mod:3 %}
+        <li style="background-color: lightgreen">{{ num }}是3倍数</li>
+    {% else %}
+        <li>{{ num }}不是3的倍数</li>
+    {% endif %}
+{% endfor %}
+
+
+</body>
+</html>

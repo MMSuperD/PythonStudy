@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>城市选择器</title>
+    <script src="/static/js/jquery-3.4.1.js"></script>
+    <script>
+        $(function () {
+
+            $.get('/province',function (data) {
+
+                re = data.data;
+                /*
+                for (i = 0; i<re.length;i++){
+                    area_id = re[i][0];
+                    area_title = re[i][1];
+
+                    optionStr = "<option value=" + area_id + ">" + area_title + "</option>"
+                    $('#select').append(optionStr);
+                }
+                 */
+                $.each(re,function (index,item) {
+                    area_id = item[0];
+                    area_title = item[1];
+
+                    optionStr = "<option value=" + area_id + ">" + area_title + "</option>"
+                    $('#province').append(optionStr);
+                })
+            });
+
+            // click option time
+            $('#province').change(function () {
+                area_id = $(this).val()
+
+                if (area_id == null){
+                      //clear last click data
+                    $('#city').html('<option value="">--选择城市--</option>');
+                    $('#country').html('<option value="">--选择区县--</option>');
+                    return;
+                }
+
+                //clear last click data
+                $('#city').html('<option value="">--选择城市--</option>');
+                $('#country').html('<option value="">--选择区县--</option>');
+
+                $.get('/city/' + area_id,function (data) {
+
+                    re = data.data;
+
+                    $.each(re,function (index,item) {
+                        area_id = item[0];
+                        area_title = item[1];
+
+                        optionStr = "<option value=" + area_id + ">" + area_title + "</option>"
+                        $('#city').append(optionStr);
+                    })
+
+                });
+
+            });
+
+             // click option time
+            $('#city').change(function () {
+                area_id = $(this).val()
+
+                if (area_id == null){
+
+                    return;
+                }
+                //clear last click data
+                $('#country').html('<option value="">--选择区县--</option>');
+                $.get('/city/' + area_id,function (data) {
+
+                    re = data.data;
+
+                    $.each(re,function (index,item) {
+                        area_id = item[0];
+                        area_title = item[1];
+
+                        optionStr = "<option value=" + area_id + ">" + area_title + "</option>"
+                        $('#country').append(optionStr);
+                    })
+
+                });
+
+            });
+
+
+
+        });
+
+    </script>
+</head>
+<body>
+<select name="" id="province">
+    <option value="">--选择省份--</option>
+</select>
+<select name="" id="city">
+    <option value="">--选择城市--</option>
+</select>
+<select name="" id="country">
+    <option value="">--选择区县--</option>
+</select>
+</body>
+</html>
