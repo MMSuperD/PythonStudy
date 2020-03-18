@@ -1,0 +1,52 @@
+
+一.Git简介:
+   1.Git 是一款分布式文件管理系统,Git相对于集中式 就是单独可以运行.
+
+二.Git常用操作.
+   1.创建版本厂库命令
+     git init
+
+   2.版本创建
+      2.1 工作区添加到暂存区
+          git add 文件目录/文件
+      2.2 提交版本信息
+          git commit -m '版本信息说明'
+      2.3 查看版本记录
+          git log
+          git log --pretty=oneline
+          git reflog
+      2.4 版本回退(HEAD指向当前版本)
+          git reset --hard HEAD^  表示回答上一个版本
+          git reset --hard HEAD^^  表示回到上上个版本
+          git reset --hard HEAD~2 表示回到上上个版本
+          git reset --hard HEAD~12 表示回到十二个版本前
+          git reset --hard 版本号  表示回到某一个版本好的版本
+      2.5 查看版本记录
+          git reflog 查看版本记录
+          git log 查看版本记录
+      2.6 工作区,暂存区,版本库
+           工作区:编辑文件的地方都是工作区
+           暂存区: git add 文件目录/文件 都是把工作区的文件放到暂存区
+           版本库: git commit -m '版本信息' 就是把暂存区的文件添加到版本库中,会生成一个唯一的版本号
+      2.7 管理和修改
+          git commit -m '版本信息' 只会把暂存区的文件提交到版本库中
+      2.8 撤销和修改
+          2.8.1 丢下工作区的改动:git checkout -- 文件,也就是所谓的文件重置
+          2.8.2 修改已经添加到暂存区的文件,但是没有commit提交的文件:
+                第一步:git reset HEAD 文件
+                第二步:git checkout -- 文件
+                第三步:重新编辑文件了
+          2.8.3 已经commit的文件:版本回退
+      2.9 对比文件的不同
+          2.9.1 对比工作区文件 和 版本库文件不同:
+                git diff HEAD -- 文件
+          2.9.2 对比两个版本中的文件
+                git diff HEAD HEAD^ --文件
+                或
+                git diff 版本号 版本号 --文件
+      2.10 删除文件
+          第一步:rm 文件
+          第二步:git rm 文件
+          第三部:git commit "版本信息"
+      2.11 查看文件状态
+          git status

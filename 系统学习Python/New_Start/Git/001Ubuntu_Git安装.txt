@@ -1,0 +1,3 @@
+
+一.安装 git
+sudo apt-get install git
