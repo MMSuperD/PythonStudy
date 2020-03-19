@@ -1,0 +1,139 @@
+一.安装
+   1.官网下载:
+     https://redis.io/download
+
+   2.解压缩
+     tar xzf redis-5.0.5.tar.gz
+
+   3.推荐放到目录
+     sudo mv redis-5.0.5  /usr/local/redis
+
+   4.进入目录redis
+     /usr/local/redis
+
+   5.生成
+     sudo make失败则 使用 sudo make MALLOC=libc后再sudo make
+
+   6.测试
+     sudo make test 如果失败可能原因是 tcl 版本不够 安装 tcl
+                     You need tcl 8.5 or newer in order to run the Redis test
+                     make: *** [test] Error 1
+
+     sudo make test 成功 直接进入 第 14 步
+
+   7.从官网下载tcl:
+     https://sourceforge.net/projects/tcl/
+
+   8.解压缩tcl
+     tar -zxvf tcl8.6.8-src.tar.gz
+
+   9.推荐放到目录
+     sudo mv tcl.8.6.8  /usr/local/tcl
+
+   10.进入目录unix
+      /usr/local/tcl/unix
+
+   11.执行配置
+      ./configure
+
+   12.构建
+      make
+
+   13.安装
+      make install
+
+   14.进入目录
+      /usr/local/bin
+
+   15.启动redis 服务
+      ./redis-server
+
+   16.得到redis-server 服务的pid
+      ps aux | grep redis  得到pid
+
+   17.杀死 redis-server
+      kill -s 9 pid
+
+二.Redis 服务的基本本配置
+   1.配置文件的位置如果按照上面的方式安装 配置文件在
+     /usr/local/redis/redis.conf
+
+   2.如果是在线安装配置文件的在
+     /etc/redis/redis.conf
+
+   3.查看帮助文档
+     redis-=erver --help
+
+   4.添加Redis 的访问账号
+     Redis服务器默认是不需要密码的，假设设置密码为123456。
+     去掉requirepass 前面的注释#，在后面添加密码
+     requirepass 123456
+
+   5.开启Redis的远程连接
+     注释掉绑定地址#bind 127.0.0.1
+
+   6.修改Redis的默认端口
+     port 6379
+
+   7.Redis以守护进程运行
+     如果以守护进程运行，则不会在命令行阻塞，类似于服务
+     如果以非守护进程运行，则当前终端被阻塞，无法使用
+     推荐改为yes，以守护进程运行
+     daemonize no|yes
+
+   8.Redis的数据文件
+     dbfilename dump.rdb
+
+   9.数据文件存储路径
+     dir /var/lib/redis
+
+   10.配置完成后重新启动服务器
+      sudo redis-server /usr/local/redis/redis.conf
+
+三.启动客户端
+  1.安装Redis服务器，会自动地一起安装Redis命令行客户端程序。
+    命令行输入 redis-cli 如果设置了密码123456 redis-cli -a 123456
+    常用命令： Redis命令不区分大小写
+    ping返回PONG表示畅通
+    help 命令行的帮助
+    quit 或者Ctrl+d或者Ctrl+c退出
+
+  2.连通之后我们可以切换数据库
+    数据库默认没有名称,默认有十六个,通过 0-15 来标识 ,链接redis 数据库,默认选中的是第一个数据库
+    select 2 表示用第二个数据库
+
+
+四.Redis数据库的简介
+   1.Redis 是一款 nosql 数据库
+
+   2.nosql 数据库特点
+     1.不支持SQL语法
+     2.存储结构跟传统的那种关系结构完全不同,nosql中存储的数据是以KV的形式存储的
+     3.NoSQL的世界中,没有一款通用的语言,每种nosql 数据库都有自己的api 和 语法,以及擅长的业务场景
+     4.nosql 数据库种类很多
+      例如:
+      Mongodb
+      Redis
+      Hbase hadoop
+      Cassandra hadoop
+
+   3.nosql 和 SQL 数据库比较
+     场景不同:SQL适合比较复杂的数据查询场景,nosql 反之
+     事务特性支持:SQL对事务支持特别完善,而nosql 不支持事务
+     两者都在取长补短,呈现融合的趋势
+
+   4.Redis特性
+     Redis 与 其他key-value缓存产品有以下三个特点
+     Redis支持数据的持久化,可以将内存中的数据保存在磁盘中,重启的时候还可以再次加载使用
+     Redis 不仅只支持简单的key-value 形式,同时还提供了list,set,zset ,hash 等数据结构存储
+     Redis 支持数据备份,即master-slave模式数据备份
+
+   5.Redis应用场景
+     用来做缓存(ehcache/mencache),redis所有的数据都是存放在内存当中的(内存数据库)
+     在某些特定的场景可以替换传统的数据库----比如社交类应用
+     在一些大型的系统中,巧妙的实现一些特定的功能:session共享,购物车
+     只要你得想象力足够丰富,redis 可以给你无限的惊喜
+
+
+
+
