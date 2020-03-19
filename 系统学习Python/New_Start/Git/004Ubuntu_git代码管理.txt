@@ -1,0 +1,49 @@
+一.配置本地.gitconfig,如果我们安装了git  并且配置了git 用户,可以通过下面命令查看
+   用户家目录中:
+   cat .gitconfig
+   可以的得到我们配置的账户信息如下:
+   [user]
+	email = shdjxywd@sina.com
+	name = fan
+
+二.Github 配置
+   第一步:创建一个github 账号
+   第二步:创建ssh配置
+         1.本地生成公钥和私钥
+           ssh-keygen -t rsa -C 'shdjxywd@sina.com'
+         2.把生成的公钥配置github 上面(SSH配置)
+   第三步:创建一个python项目
+   第四步:添加忽略文件
+   第五步:项目创建完成
+
+三.项目常规操作
+   1.拉取项目
+     git clone ssh链接项目地址
+
+     如果在项目拉取的时候报错:
+     eval "$(ssh-agent -s)"
+     ssh add
+
+   2.创建本地分支
+     git branch 分支名(dev)
+
+   3.切换到分支到 dev
+     git checkout dev
+
+   4.把当前本地我们创建的分支推送到服务器上面去
+     git push orgin dev(分支名)
+
+   5.设置我们本地分支dev 和远程分支 dev 同步
+     git branch --set-upstream-to=orign/dev dev
+
+   6.查看分支状态
+     git staus
+
+   7.拉取远程的分支首先确保 本地分支和远程分支一样
+     git pull orgin dev(分支名)
+
+
+
+
+
+

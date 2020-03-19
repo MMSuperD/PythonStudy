@@ -40,5 +40,8 @@
       5.6 在工作分支上面恢复以前的工作状态
           git stash pop
 
+      5.7 查看当前暂存状态
+          git stash list
+
 
 
